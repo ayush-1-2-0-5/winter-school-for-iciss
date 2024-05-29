@@ -1,0 +1,165 @@
+/* @font-face {
+  font-family: 'Inter';
+  src: url('fonts/Inter-Regular.ttf') format('truetype');
+} */
+
+
+
+
+
+.left-half {
+  position:absolute;
+  left: 0px; 
+  top: 0x; 
+  width: 766px; 
+  height: 1024px;
+}
+.login{
+  position:absolute;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  font-size:50px;
+  left: 932px; 
+  top: 84px; 
+  width: 136px; 
+  height: 60px;
+}
+
+
+.b{
+  position:absolute;
+  color:#818181;
+  font-family: 'Inter', sans-serif;
+  left: 932px; 
+  top: 163px; 
+  width: 245px; 
+  height: 19px;  
+  font-size:16px;
+  font-weight:400;
+}
+.inputa{
+  position: absolute;
+  left: 925.01px; 
+  top: 201px; 
+  width: 422px; 
+  height: 60px;
+  stroke:#D1D1D1;
+   box-shadow: 0 4px 8px #D1D1D1;
+}
+.inputb{
+  position: absolute;
+  left: 925.01px; 
+  top: 294px; 
+  width: 422px; 
+  height: 60px;
+  stroke:#D1D1D1;
+   box-shadow: 0 4px 8px #D1D1D1;
+}
+
+
+
+
+.checkbox-container {
+ position:absolute;
+  left: 932.01px; 
+  top: 410px; 
+  width:15.5px; 
+  height: 12.5px;
+}
+.kp{
+  position:absolute;
+  left: 970.01px; 
+  top: 410px; 
+  width:141px; 
+  height: 19px;
+  font-size:16px;
+  font-weight:400;
+  color:#818181;
+  font-family: 'Inter', sans-serif;
+}
+.fp{
+  position:absolute;
+  left: 1212.01px; 
+  top: 410px; 
+  width:135px; 
+  height: 19px;
+  font-size:16px;
+  font-weight:400;
+  color:#DB8047;
+  font-family: 'Inter', sans-serif;
+}
+
+.checkbox-container input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.login-button {
+  background-color: #DB8047;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  
+  position:absolute;
+  left: 925.01px; 
+  top: 468px; 
+  width:422px; 
+  height: 60px;
+}
+
+.dont{
+  position:absolute;
+  left: 925.01px; 
+  top: 567px; 
+  width:239px; 
+  height: 18px;
+  font-size:16px;
+  font-weight:400;
+  color:#818181;
+  font-family: 'Inter', sans-serif;
+}
+.sign{
+  font-size:16px;
+  font-weight:400;
+  color:#DB8047;
+  font-family: 'Inter', sans-serif;
+}
+.container{
+  font-size:16px;
+  font-weight:400;
+  color:#818181;
+  font-family: 'Inter', sans-serif;
+}
+.g{
+   position:absolute;
+   height: 65px;
+   top: 696px;
+  left:975px;
+  width:68px;
+}
+.f{
+   position:absolute;
+  left:1059px;
+  width:68px;
+   top: 696px;
+  height: 65px;
+  
+}
+.i{
+  position:absolute;
+  left:1144px;
+  width:68px;
+   top: 696px;
+  height: 65px;
+}
+.t{
+  position:absolute;
+  left:1228px;
+  width:68px;
+   top: 696px;
+  height: 65px;
+}
+
+a:hover {
+  text-decoration: underline;
+}

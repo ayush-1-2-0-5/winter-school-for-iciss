@@ -1,0 +1,184 @@
+/* @font-face {
+  font-family: 'Inter';
+  src: url('fonts/Inter-Regular.ttf') format('truetype');
+} */
+
+
+
+
+
+.left-half {
+    position:absolute;
+    left: 0px; 
+    top: 0x; 
+    width: 766px; 
+    height: 1024px;
+  }
+  .login{
+    position:absolute;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    font-size:50px;
+    left: 925px; 
+    top: 68px; 
+    width: 202px; 
+    height: 60px;
+  }
+  
+  
+  .b{
+    position:absolute;
+    color:#818181;
+    font-family: 'Inter', sans-serif;
+    left: 932px; 
+    top: 145px; 
+    width: 254px; 
+    height: 19px;  
+    font-size:16px;
+    font-weight:400;
+  }
+  .inputfn{
+    position: absolute;
+    left: 925.01px; 
+    top: 201px; 
+    width: 422px; 
+    height: 60px;
+    stroke:#D1D1D1;
+     box-shadow: 0 4px 8px #D1D1D1;
+  }
+  .inputln{
+    position: absolute;
+    left: 925.01px; 
+    top: 294px; 
+    width: 422px; 
+    height: 60px;
+    stroke:#D1D1D1;
+     box-shadow: 0 4px 8px #D1D1D1;
+  }
+  .inputas{
+    position: absolute;
+    left: 925.01px; 
+    top: 376px; 
+    width: 422px; 
+    height: 60px;
+    stroke:#D1D1D1;
+     box-shadow: 0 4px 8px #D1D1D1;
+  }
+  .inputbs{
+    position: absolute;
+    left: 925.01px; 
+    top: 469px; 
+    width: 422px; 
+    height: 60px;
+    stroke:#D1D1D1;
+     box-shadow: 0 4px 8px #D1D1D1;
+  }
+  
+  
+  
+  
+  .checkbox-containers {
+   position:absolute;
+    left: 932.01px; 
+    top: 586.5px; 
+    width:15.5px; 
+    height: 12.5px;
+  }
+  .kps{
+    position:absolute;
+    left: 962.01px; 
+    top: 585px; 
+    width:347px; 
+    height: 24px;
+    font-size:16px;
+    font-weight:400;
+    color:#818181;
+    font-family: 'Inter', sans-serif;
+  }
+  .fps{
+    position:absolute;
+    left: 1212.01px; 
+    top: 410px; 
+    width:135px; 
+    height: 19px;
+    font-size:16px;
+    font-weight:400;
+    color:#DB8047;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .checkbox-containers input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  
+  .login-buttons {
+    background-color: #DB8047;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    
+    position:absolute;
+    left: 925.01px; 
+    top: 644px; 
+    width:422px; 
+    height: 60px;
+  }
+  
+  .donts{
+    position:absolute;
+    left: 925.01px; 
+    top: 743px; 
+    width:239px; 
+    height: 18px;
+    font-size:16px;
+    font-weight:400;
+    color:#818181;
+    font-family: 'Inter', sans-serif;
+  }
+  .sign{
+    font-size:16px;
+    font-weight:400;
+    color:#DB8047;
+    font-family: 'Inter', sans-serif;
+  }
+  .containers{
+    font-size:16px;
+    font-weight:400;
+    color:#818181;
+    font-family: 'Inter', sans-serif;
+  }
+  .gs{
+     position:absolute;
+     height: 65px;
+     top: 872px;
+    left:975px;
+    width:68px;
+  }
+  .fs{
+     position:absolute;
+    left:1059px;
+    width:68px;
+     top: 872px;
+    height: 65px;
+    
+  }
+  .is{
+    position:absolute;
+    left:1144px;
+    width:68px;
+     top: 872px;
+    height: 65px;
+  }
+  .ts{
+    position:absolute;
+    left:1228px;
+    width:68px;
+     top: 872px;
+    height: 65px;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
