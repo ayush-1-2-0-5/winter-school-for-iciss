@@ -13,7 +13,7 @@ import Body7 from "../components/Body7";
 const WinterSchool = () => {
   return (
     <div className="w-full relative bg-white flex flex-col items-end justify-start pt-0 px-0 pb-[0.1px] box-border gap-[6px] leading-[normal] tracking-[normal] overflow-x-hidden">
-      <Navbar />
+      <Navbar/>
       <section className="w-[1404.8px] flex flex-col items-end justify-start pt-0 pb-[73px] pr-[27.8px] pl-7 box-border gap-[58.4px] max-w-full mq800:gap-[29px] mq800:pb-5 mq800:box-border mq1350:pb-[31px] mq1350:box-border">
         <Hero />
         <Body1 />

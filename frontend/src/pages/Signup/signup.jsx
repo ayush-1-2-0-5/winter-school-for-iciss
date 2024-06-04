@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './signup.css';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const SignupPage = () => {
   const [username, setUsername] = useState('');
@@ -7,19 +9,30 @@ const SignupPage = () => {
   const [firstname,setFirstname]=useState('');
   const [lastname,setLastname]=useState('');
   const [keepLoggedIn, setKeepLoggedIn] = useState(false);
+  const navigate = useNavigate();
 
   const handleCheckboxChange = () => {
       setKeepLoggedIn(!keepLoggedIn);
   };
 
-  const handleLogin = () => {
-    console.log('Logging in...');
+    const handleSignup = async () => {
+      console.log('hello');
+      try {
+        const response = await axios.post('http://localhost:3001/api/v1/user/signup', {
+          username, password, firstName: firstname, lastName: lastname
+        });
+        console.log('Signup successful:', response.data);
+        const { token } = response.data;
+      localStorage.setItem('jwtToken', token);
+      navigate('/dashboard');
+      } catch (error) {
+        console.error('Signup error:', error);
+      }
+    };
+  const handleLoginClick = () => {
+    navigate('/login'); 
   };
-  const [href, setHref] = useState('#');
 
-  const handleClick = () => {
-    setHref('http://localhost:3000/login');
-  };
 
 
   return (
@@ -67,10 +80,10 @@ const SignupPage = () => {
           />
       </div>
        <div  className='kps'>I agree to the terms and privacy policy</div>
-        <button className="login-buttons" onClick={handleLogin}>Create an Account</button>
+        <button className="login-buttons" onClick={handleSignup}>Create an Account</button>
 
         <div>
-      <p className='donts'>Already a member <a className="sign" href={href} onClick={handleClick}>Login</a></p>
+      <p className='donts'>Already a member <a className="sign cursor-pointer" onClick={ handleLoginClick}>Login</a></p>
     </div>
 
       <div className="containers" style={{ position: 'absolute', width: '422px', height: '19px', left: '925px', top: '803px', display: 'flex', alignItems: 'center'  }}>

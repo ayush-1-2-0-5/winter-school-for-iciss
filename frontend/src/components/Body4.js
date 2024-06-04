@@ -33,7 +33,7 @@ const Body4 = () => {
               <div className="relative leading-[33px]">
                 Classes are taught in a small groups, typically 4 students.
               </div>
-            </div>
+            </div>klz
           </div>
           <FrameComponent4
             a4d06e81233114201417e6161="/636a4d06e81233114201417e-6161b947fe040cd483eb5b68-ellipse203svgwebp-1@2x.png"

@@ -8,6 +8,7 @@ import {
 import WinterSchool from "./pages/WinterSchool";
 import LoginPage from './pages/Login/login'
 import SignupPage from "./pages/Signup/signup";
+import Dashboard from "./pages/dashboard";
 
 
 function App() {
@@ -51,8 +52,7 @@ function App() {
       <Route path="/" element={<WinterSchool />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignupPage />} />
-      
-
+      <Route path="/dashboard" element={<Dashboard/>} />
     </Routes>
   );
 }

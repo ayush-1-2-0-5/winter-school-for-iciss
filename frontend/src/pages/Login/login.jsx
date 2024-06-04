@@ -1,24 +1,35 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './login.css';
+import axios from 'axios';
 
 const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [keepLoggedIn, setKeepLoggedIn] = useState(false);
+  const navigate = useNavigate();
 
   const handleCheckboxChange = () => {
       setKeepLoggedIn(!keepLoggedIn);
   };
-  const [href, setHref] = useState('#');
 
-  const handleClick = () => {
-    setHref('http://localhost:3000/signup');
+  const handleSignupClick = () => {
+    navigate('/signup'); 
   };
 
-
-  const handleLogin = () => {
-    console.log('Logging in...');
+  const handleLogin = async() => {
+      try {
+        const response = await axios.post('http://localhost:3001/api/v1/user/signin', {
+          username, password
+        });
+        const { token } = response.data;
+      localStorage.setItem('jwtToken', token);
+      navigate('/dashboard');
+      } catch (error) {
+        console.error('Signup error:', error);
+      }
   };
+
 
 
   return (
@@ -56,7 +67,7 @@ const LoginPage = () => {
         <button className="login-button" onClick={handleLogin}>Log in</button>
 
         <div>
-      <p className='dont'>Don't have an account?  <a className="sign" href={href} onClick={handleClick}>Signup</a></p>
+      <p className='dont'>Don't have an account?  <a className="sign cursor-pointer"  onClick={handleSignupClick}>Signup</a></p>
     </div>
       
 
@@ -77,12 +88,7 @@ const LoginPage = () => {
              
           </div>
       </div>
-
-
-
       </div>
-       
-  
   );
 };
 
