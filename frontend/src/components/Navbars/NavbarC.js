@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
 import LogoutP from './logoutpannel';
+import { useNavigate } from 'react-router-dom';
 
-const NavbarC = ({ userDetails, title, length, currentPage, onPageChange, maintitle }) => {
+const NavbarC = ({ userDetails, title, length, currentPage, onPageChange, maintitle, toggleSidebar }) => {
+  const navigate = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedPage, setSelectedPage] = useState(currentPage);
- console.log(maintitle);
+
   const handleNext = () => {
     if (currentPage < length) {
       onPageChange(currentPage + 1);
     }
+  };
+
+  const navtoDashboard = () => {
+    navigate('/dashboard');
   };
 
   const handlePrev = () => {
@@ -34,27 +40,25 @@ const NavbarC = ({ userDetails, title, length, currentPage, onPageChange, mainti
 
     return (
       <div className="absolute bg-[#030712] shadow-md  w-48 border border-solid border-gray-300 overflow-hidden z-10 top-[36px]">
-          {pages.map((page) => (
-            <div
-              key={page}
-              onClick={() => handleJumpTo(page)}
-              className={`cursor-pointer rounded-lg px-3 py-2 text-white font-open-sans text-[14px] hover:bg-[#9898d3]  ${
-                page === selectedPage ? ' bg-[#030712] font-sherif cursor-default text-[#7b7d83]  hover:bg-[#030712]' : ''
-              }`}
-            >
-            {page} - {maintitle[page-1]}
-            
-            </div>
-
-          ))}
+        {pages.map((page) => (
+          <div
+            key={page}
+            onClick={() => handleJumpTo(page)}
+            className={`cursor-pointer rounded-lg px-3 py-2 text-white font-open-sans text-[14px] hover:bg-[#9898d3]  ${
+              page === selectedPage ? ' bg-[#030712] font-sherif cursor-default text-[#7b7d83]  hover:bg-[#030712]' : ''
+            }`}
+          >
+            {page} - {maintitle[page - 1]}
+          </div>
+        ))}
       </div>
     );
   };
 
   return (
-    <nav className="bg-black border sticky border-white flex items-center justify-between px-4 py-2 h-16 top-0 relative">
+    <nav className="bg-black border border-white flex items-center justify-between px-4 py-2 h-16 top-0 relative">
       <div
-        onClick={() => onPageChange(1)}
+        onClick={navtoDashboard}
         className="text-[22px] font-family:Times hover:cursor-pointer font-bold text-white"
       >
         WINTER-SCHOOL
@@ -87,19 +91,20 @@ const NavbarC = ({ userDetails, title, length, currentPage, onPageChange, mainti
               onClick={toggleDropdown}
               className="hover:bg-gray-700  rounded-md bg-[#030712] border py-2 border-gray-300 border-solid text-white focus:outline-none focus:ring-2 focus:ring-gray-300 hover:cursor-pointer flex flex-row"
             >
-              <div > Jump To </div>
-             
+              <div> Jump To </div>
+
               <img
-    src='https://static.vecteezy.com/system/resources/previews/015/152/841/large_2x/slant-arrow-geometric-line-for-modern-and-futuristic-design-element-png.png'
-    className=" h-4 ml-2 " // Adjust size and padding here
-    alt="Arrow Icon"
-  />
+                src='https://static.vecteezy.com/system/resources/previews/015/152/841/large_2x/slant-arrow-geometric-line-for-modern-and-futuristic-design-element-png.png'
+                className=" h-4 ml-2 "
+                alt="Arrow Icon"
+              />
             </button>
-    
+
             {renderDropdown()}
-            
           </div>
         </div>
+
+        <button onClick={toggleSidebar} className="bg-[#030712] border border-gray-300 border-solid text-white px-4 py-2 hover cursor-pointer rounded-md">Comments</button>
 
         <LogoutP userDetails={userDetails} />
       </div>

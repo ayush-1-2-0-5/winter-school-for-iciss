@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import Link from "./Link";
-import Help from "./Help";
+import Help from "./Frontpage/Help";
 //HERE CHANGE ONCLICK TO OPEN ACCORDING ANSWERS,
 // I WAS NOT GIVEN ANSWERS SO I LINKED EVERYTHING TO THE WEBSITE
 // YOU SHOULD HAVE GIVEN ME ANSWERS, ANYWAYS YOUR LOSS!

@@ -1,4 +1,4 @@
-// backend/routes/user.js
+
 const express = require('express');
 const router = express.Router();
 const zod = require("zod");
@@ -41,7 +41,8 @@ router.post("/signup", async (req, res) => {
     const userId = user._id;
 
     const token = jwt.sign({
-        username: req.body.username
+        username: req.body.username,
+        userId:user._id
     }, JWT_SECRET);
 
     res.json({
@@ -70,9 +71,7 @@ router.post("/signin", async (req, res) => {
             token: token
         })
         return;
-    }
-
-    
+    } 
     res.status(411).json({
         message: "Error while logging in"
     })
@@ -93,7 +92,7 @@ router.put("/", authMiddleware, async (req, res) => {
     }
 
 	await User.updateOne({ _id: req.userId }, req.body);
-	
+
     res.json({
         message: "Updated successfully"
     })
@@ -102,6 +101,7 @@ router.put("/", authMiddleware, async (req, res) => {
 
 router.get("/session",authMiddleware,async(req,res)=>
 {
+    console.log(req.username);
     const existingUser = await User.findOne({
         username: req.username
     })
@@ -117,5 +117,4 @@ router.get("/session",authMiddleware,async(req,res)=>
         status: false
     })
 })
-
 module.exports = router;

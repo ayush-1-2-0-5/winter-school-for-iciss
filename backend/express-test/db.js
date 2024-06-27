@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-
-// Connect to the MongoDB database
 mongoose.connect(
   'mongodb+srv://ayush2002agarwal:UMF4kS6kfDyZA3WU@cluster0.dve92tv.mongodb.net/',
   {
@@ -13,34 +11,6 @@ mongoose.connect(
   console.error('Database connection error:', err);
 });
 
-// Card Schema
-const cardSchema = new mongoose.Schema({
-  title: {
-    type: String,
-    required: true,
-  },
-  description: {
-    type: String,
-    required: true,
-  },
-  tags: {
-    type: [String],
-    required: false,
-  },
-  image: {
-    type: String,
-    required: false,
-  },
-  id: {
-    type: String,
-    required: true,
-    unique: true,
-  }
-});
-
-const Card = mongoose.model('Card', cardSchema);
-
-// User Schema
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -68,50 +38,10 @@ const userSchema = new mongoose.Schema({
     trim: true,
     maxlength: 50,
   },
-});
+},{ timestamps: true });
+
 
 const User = mongoose.model('User', userSchema);
-
-
-const contentItemSchema = new mongoose.Schema({
-  maintitle:{
-     type: String,
-     required:true,
-  },
-  title: {
-    type: [String],
-    required: true,
-  },
-  description: {
-    type: [String],
-    required: true,
-  },
-  image: {
-    type: [String],
-    required: false, 
-  }
-}, { _id: false });
-
-const contentSchema = new mongoose.Schema({
-  length: {
-    type: Number,
-    required: true,
-  },
-  id: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  content: {
-    type: [contentItemSchema],
-    required: true,
-  }
-});
-
-const Content = mongoose.model('Content', contentSchema);
-
 module.exports = {
-  User,
-  Card,
-  Content,
+  User
 };

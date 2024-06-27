@@ -1,8 +1,9 @@
-import { useCallback } from "react";
-import { Link } from 'react-router-dom';
+import React, { useCallback } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
-// AANYA!! SURPRISE FOR YOU ON ALL THE LINKS XD
 const Navbar = () => {
+  const navigate = useNavigate();
+
   const onLogoClick = useCallback(() => {
     window.open("https://iciss.isrdc.in/");
   }, []);
@@ -18,6 +19,10 @@ const Navbar = () => {
   const onLinkAllClick = useCallback(() => {
     window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
   }, []);
+
+  const handleLoginClick = () => {
+    navigate('/login');
+  };
 
   return (
     <header className="self-stretch bg-whitesmoke-100 flex flex-row items-start justify-start py-0 px-[70px] box-border top-[0] z-[99] sticky max-w-full text-left text-base text-black font-domine mq800:pl-[35px] mq800:pr-[35px] mq800:box-border">
@@ -101,15 +106,25 @@ const Navbar = () => {
           </div>
           <div className="flex-1 flex flex-row items-start justify-start gap-[16px] text-sm text-white font-merriweather">
             <div>
-            <button className="cursor-pointer border-none py-2 px-6 bg-sandybrown rounded-31xl flex flex-row items-start justify-start whitespace-nowrap hover:bg-sienna">
-             <Link
-               to="./login"
+              
+              <button className="cursor-pointer border-none py-2 px-6 bg-sandybrown rounded-31xl flex flex-row items-start justify-start whitespace-nowrap hover:bg-sienna">
+                <Link
+                  to="/login"
                   className="relative text-base font-open-sans text-white text-left inline-block text-decoration-none"
-              >
-               Login
-             </Link>
-             </button>
-
+                >
+                  Login
+                </Link>
+              </button>
+            </div>
+            <div>
+              <button className="cursor-pointer border-none py-2 px-6 bg-sandybrown rounded-31xl flex flex-row items-start justify-start whitespace-nowrap hover:bg-sienna">
+                <Link
+                  to="/adminboard"
+                  className="relative text-base font-open-sans text-white text-left inline-block text-decoration-none"
+                >
+                  Login an Admin
+                </Link>
+              </button>
             </div>
             <div className="flex flex-col items-start justify-start pt-[10.7px] px-0 pb-0">
               <div className="w-12 h-[17.5px] relative shrink-0 [debug_commit:1de1738]">

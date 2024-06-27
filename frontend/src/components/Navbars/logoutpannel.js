@@ -18,7 +18,7 @@ const LogoutP=({userDetails})=>{
     onClick={()=>setIsOpen(!isOpen)}
     className='rounded-full bg-[#ec407a] w-8 h-8 cursor-pointer text-white flex items-center justify-center'
   >
-    {userDetails?.firstName?.[0]}
+    {userDetails?.firstName?.[0]}{userDetails?.lastName?.[0]}
   </div>
   {
     isOpen? 

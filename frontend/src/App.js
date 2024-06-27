@@ -6,12 +6,12 @@ import {
   useLocation,
 } from "react-router-dom";
 import WinterSchool from "./pages/WinterSchool";
-import LoginPage from './pages/Login/login'
-import SignupPage from "./pages/Signup/signup";
+import LoginPage from "./pages/login.jsx"
+import SignupPage from "./pages/signup.jsx";
 import Dashboard from "./pages/dashboard";
+import Adminboard from "./pages/adminboard.jsx";
 import Page from "./pages/Coursecontent/page";
-
-
+// import MessageContain from "./components/messages/MessageContain";
 
 function App() {
   const action = useNavigationType();
@@ -70,11 +70,14 @@ function App() {
 
   return (
     <Routes>
+      
       <Route path="/" element={<WinterSchool />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignupPage />} />
       <Route path="/dashboard" element={<Dashboard/>} />
-      <Route path="/dashboard/:id" element={<Page />} />
+      <Route path="/dashboard/:id" element={<Page/>} />
+      <Route path="/adminboard" element={<Adminboard/>} />
+      {/* <Route path="/dashboard/:id/chat" element={<MessageContain/>}/> */}
       
     </Routes>
   );

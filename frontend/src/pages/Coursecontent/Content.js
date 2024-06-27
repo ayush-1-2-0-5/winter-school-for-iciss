@@ -1,7 +1,6 @@
 import React from "react";
 
 const Content = ({ content,page }) => {
-//   console.log("Content data:", content.maintitle); 
   const maxLength = Math.max(content.title.length, content.description.length, content.image.length);
 
   const indices = Array.from({ length: maxLength }, (_, index) => index);
@@ -14,9 +13,7 @@ const Content = ({ content,page }) => {
           <div className="text-bold mb-4 text-[32px] font font-sans ">{index+1} . {content.title[index]}</div>
           <div className="ml-5 mb-4 text-[#ebebeb] font-open-sans">{content.description[index]}</div>
         <div className="flex mb-8 mt-2 justify-center items-center h-auto">{content.image[index] && <img src={content.image[index]}  style={{ maxWidth: '100%' }} />}</div>
-          
         </div>
-       
       ))}
    
        </div>

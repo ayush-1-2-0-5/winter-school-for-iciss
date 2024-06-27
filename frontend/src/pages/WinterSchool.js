@@ -1,14 +1,14 @@
-import Navbar from "../components/Navbar";
-import Hero from "../components/Hero";
-import Body1 from "../components/Body1";
+import Navbar from "../components/Navbars/Navbar";
+import Hero from "../components/Frontpage/Hero";
+import Body1 from "../components/Frontpage/Body1";
 import Body3 from "../components/Body3";
-import Footer from "../components/Footer";
-import Body2 from "../components/Body2";
-import Body4 from "../components/Body4";
-import Body5 from "../components/Body5";
-import Body6 from "../components/Body6";
+import Footer from "../components/Frontpage/Footer";
+import Body2 from "../components/Frontpage/Body2";
+import Body4 from "../components/Frontpage/Body4";
+import Body5 from "../components/Frontpage/Body5";
+import Body6 from "../components/Frontpage/Body6";
 import Faq from "../components/Faq";
-import Body7 from "../components/Body7";
+import Body7 from "../components/Frontpage/Body7";
 
 const WinterSchool = () => {
   return (

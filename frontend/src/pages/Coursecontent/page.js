@@ -1,20 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import axios from 'axios';
-import NavbarC from '../../components/NavbarC';
-import Content from '../../components/Content';
+import NavbarC from '../../components/Navbars/NavbarC';
+import Content from './Content';
+import CommentBar from '../../components/CommentsBar/CommentBar';
 
 const Page = () => {
   const [userDetails, setUserDetails] = useState({});
   const [content, setContent] = useState(null);
-  const [contenttt, setContentt] = useState([]); // Initialize as an array
+  const [contenttt, setContentt] = useState([]);
   const [contentLength, setContentLength] = useState(null);
   const [currpage, setCurrPage] = useState(1);
   const [titles, setTitles] = useState([]);
+  const [showSidebar, setShowSidebar] = useState(false);
+
   const navigate = useNavigate();
   const { id } = useParams();
   const location = useLocation();
   const { title } = location.state || {};
+
+  const toggleSidebar = () => {
+    setShowSidebar(prevState => !prevState);
+  };
 
   const handleData = async (token) => {
     try {
@@ -63,6 +70,7 @@ const Page = () => {
       fetchContent(id);
     }
   }, [id]);
+
   useEffect(() => {
     if (content && content.content && Array.isArray(content.content)) {
       const titles = content.content.map(item => item.maintitle);
@@ -71,29 +79,34 @@ const Page = () => {
     }
   }, [content]);
 
-  // console.log(titles);
-  
-// console.log(titles);
-  
-
   return (
-    <>
-      <div className='bg-[#2f3437] min-h-screen '>
-        <NavbarC 
-          userDetails={userDetails} 
-          title={title} 
-          length={contentLength} 
-          currentPage={currpage} 
-          onPageChange={onPageChange} 
+    <div className='bg-[#2f3437] min-h-screen flex flex-col'>
+      <div className='w-full'>
+        <NavbarC
+          userDetails={userDetails}
+          title={title}
+          length={contentLength}
+          currentPage={currpage}
+          onPageChange={onPageChange}
           maintitle={titles}
-       
+          toggleSidebar={toggleSidebar}
         />
-
-        <div className='mr-20 ml-20 mt-10 '>
+        </div>
+         
+<div className='flex flex-grow'>
+  <div className='flex-grow overflow-auto'>
+        <div className='mr-20 ml-20 mt-10'>
           {contenttt.length > 0 && <Content content={contenttt[currpage - 1]} page={currpage} />}
         </div>
       </div>
-    </>
+
+      {showSidebar && (
+          <div className='w-72 text-white p-2 border-l rounded-[18px] border-gray-300 border-solid bg-[#030712] relative ' style={{ maxHeight: '100vh' }}>
+            <CommentBar userdetail={userDetails} id={id} />
+          </div>
+      )}
+      </div>
+    </div>
   );
 };
 

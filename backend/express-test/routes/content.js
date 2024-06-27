@@ -1,5 +1,5 @@
 const express = require('express');
-const { Content } = require('../db'); // Adjust the import path as needed
+const { Content } = require('../models/content.model'); 
 const router = express.Router();
 
 // GET /api/v1/content/:id
@@ -16,7 +16,6 @@ router.get('/:id', async (req, res) => {
   }
 });
   
-// POST /api/v1/content
 // POST /api/v1/content
 router.post('/', async (req, res) => {
   try {

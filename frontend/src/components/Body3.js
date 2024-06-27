@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import FrameComponent6 from "./FrameComponent6";
+import FrameComponent6 from "./Frontpage/FrameComponent6";
 
 const Body3 = () => {
   const onListitemLinkClick = useCallback(() => {
