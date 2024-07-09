@@ -109,7 +109,8 @@ router.get("/session",authMiddleware,async(req,res)=>
         return res.status(200).json({
             username: existingUser.username,
             firstName: existingUser.firstName,
-            lastName: existingUser.lastName
+            lastName: existingUser.lastName,
+            user_id:existingUser._id
         })
     }
     res.status(400).json({

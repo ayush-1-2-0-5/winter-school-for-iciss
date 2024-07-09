@@ -2,6 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 const {protectRoute}=require('../middleware')
+const {authMiddleware}=require('../middleware')
 
 const {sendMessage}=require('../controllers/message.controller')
 const {getMessages}=require('../controllers/message.controller')

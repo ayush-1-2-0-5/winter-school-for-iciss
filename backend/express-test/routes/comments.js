@@ -3,7 +3,6 @@ const router = express.Router();
 const { Comment } = require('../models/comments.model');
 
 
-// Existing POST route
 router.post('/', async (req, res) => {
   const { username, email, comment, time, courseId } = req.body;
 

@@ -76,6 +76,7 @@ function App() {
       <Route path="/signup" element={<SignupPage />} />
       <Route path="/dashboard" element={<Dashboard/>} />
       <Route path="/dashboard/:id" element={<Page/>} />
+      
       <Route path="/adminboard" element={<Adminboard/>} />
       {/* <Route path="/dashboard/:id/chat" element={<MessageContain/>}/> */}
       
