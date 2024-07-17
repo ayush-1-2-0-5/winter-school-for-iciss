@@ -16,7 +16,7 @@ router.get('/:id', async (req, res) => {
   }
 });
   
-// POST /api/v1/content
+
 router.post('/', async (req, res) => {
   try {
     const { length, id, content } = req.body;

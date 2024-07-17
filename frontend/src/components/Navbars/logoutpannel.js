@@ -23,7 +23,7 @@ const LogoutP=({userDetails})=>{
   {
     isOpen? 
     
-    <div className='absolute  rounded-lg top-full right-5  bg-[#030712] border border-gray-300 border-solid flex flex-col gap-1 z-50 '>
+    <div className='absolute  rounded-lg top-full right-5  bg-[#030712] border border-[#2c2e73] border-solid flex flex-col gap-1 z-50 '>
        <div className='flex flex-row'>
        <div
     className='rounded-full bg-[#ec407a] w-6 h-6 mt-6 ml-2 mr-1 text-white flex items-center justify-center'

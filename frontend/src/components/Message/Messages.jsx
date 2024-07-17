@@ -20,7 +20,7 @@ const Messages = ({ user, curruser }) => {
           sound.play()
           setMessages((prevMessages) => [...prevMessages, newMessage]);
         };
-
+ 
         socket.on('newMessage', handleNewMessage);
 
         return () => {

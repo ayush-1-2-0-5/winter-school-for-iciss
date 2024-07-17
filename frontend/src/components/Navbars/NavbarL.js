@@ -18,9 +18,9 @@ const NavbarL = ({ userDetails, toggleSidebar, onSearchTermChange }) => {
           placeholder="Search by Title"
           value={searchTermTitle}
           onChange={handleSearchTitle}
-          className="px-4 py-2 mr-8 rounded-md placeholder-gray-100 bg-[#030712] border border-gray-300 text-white focus:outline-none focus:ring-2 focus:ring-gray-300"
+          className="px-4 py-2 mr-8 rounded-md placeholder-gray-100 bg-[#030712] border border-[#2c2e73] text-white focus:outline-none focus:ring-2 focus:ring-gray-300"
         />
-        <button onClick={toggleSidebar} className="bg-[#030712] border border-gray-300 border-solid text-white px-4 py-2 hover cursor-pointer rounded-md">Chat</button>
+        <button onClick={toggleSidebar} className="bg-[#030712] border border-[#2c2e73] border-solid text-white px-4 py-2 hover cursor-pointer rounded-md">Chat</button>
         <LogoutP userDetails={userDetails} />
       </div>
     </nav>

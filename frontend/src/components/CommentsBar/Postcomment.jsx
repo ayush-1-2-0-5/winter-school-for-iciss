@@ -43,7 +43,7 @@ const Postcomment = ({ userDetails, courseId,onPostComment }) => {
           value={comment}
           onChange={handleInputChange}
           placeholder="Write a comment..."
-          className="input text-white h-[26px] placeholder-white border-[1px] border-gray-300 border-solid  bg-[#030712] rounded-md"
+          className="input text-white h-[26px] placeholder-white border-[1px] border-[#2c2e73] border-solid  bg-[#030712] rounded-md"
         />
         <button
           type="button"

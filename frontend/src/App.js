@@ -12,6 +12,7 @@ import Dashboard from "./pages/dashboard";
 import Adminboard from "./pages/adminboard.jsx";
 import Page from "./pages/Coursecontent/page";
 // import MessageContain from "./components/messages/MessageContain";
+import Createcontent from "./pages/Coursecontent/Createcontent.jsx";
 
 function App() {
   const action = useNavigationType();
@@ -78,6 +79,8 @@ function App() {
       <Route path="/dashboard/:id" element={<Page/>} />
       
       <Route path="/adminboard" element={<Adminboard/>} />
+      <Route path="/adminboard/:id" element={<Createcontent/>} />
+      
       {/* <Route path="/dashboard/:id/chat" element={<MessageContain/>}/> */}
       
     </Routes>

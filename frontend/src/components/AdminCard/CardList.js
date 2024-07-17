@@ -42,7 +42,7 @@ export default CardList;
     <input
       type="text"
       id="title"
-      className="w-full px-3 py-2 border border-gray-300 text-black rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+      className="w-full px-3 py-2 border border-[#2c2e73] text-black rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
       placeholder="Enter Title"
       value={title}
       onChange={(e) => setTitle(e.target.value)}
@@ -53,7 +53,7 @@ export default CardList;
     <label for="description" className="block text-sm font-medium text-gray-300">Description</label>
     <textarea
       id="description"
-      className="w-full  text-black  px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+      className="w-full  text-black  px-3 py-2 border border-[#2c2e73] rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
       placeholder="Description"
       value={description}
       onChange={(e) => setDescription(e.target.value)}
@@ -65,7 +65,7 @@ export default CardList;
     <input
       type="text"
       id="tags"
-      className="w-full  text-black  px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+      className="w-full  text-black  px-3 py-2 border border-[#2c2e73] rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
       placeholder="Tags (comma separated)"
       value={tags}
       onChange={(e) => setTags(e.target.value)}
@@ -76,7 +76,7 @@ export default CardList;
     <input
       type="text"
       id="image"
-      className="w-full text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+      className="w-full text-black px-3 py-2 border border-[#2c2e73] rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
       placeholder="Image URL"
       value={image}
       onChange={(e) => setImage(e.target.value)}
@@ -87,7 +87,7 @@ export default CardList;
     <input
       type="text"
       id="id"
-      className="w-full text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+      className="w-full text-black px-3 py-2 border border-[#2c2e73] rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
       placeholder="ID"
       value={id}
       onChange={(e) => setId(e.target.value)}

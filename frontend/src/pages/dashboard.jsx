@@ -5,7 +5,7 @@ import LearningPaths from '../components/LearningPath';
 import axios from 'axios';
 import Cards from '../components/LearningCard/Cards';
 import Sidebar from '../components/Side/Sidebar';
-import MessageContainer from '../components/Message/MessageContainer'; // Corrected import
+import MessageContainer from '../components/Message/MessageContainer'; 
 import { MessageContextProvider } from '../context/messageContext';
 import MessageSkeleton from '../components/Skeletons/messageskeleton';
 import { SocketContextProvider } from '../context/SocketContext';
@@ -95,15 +95,17 @@ const Dashboard = () => {
           <div className='mt-6 flex justify-center'>
             <LearningPaths onSearchTagChange={handleSearchTagChange} />
           </div>
+          
           <Cards searchTerm={searchTerm} buttonTag={searchTag} />
+          
         </div>
         {showSidebar && (
-          <div className='w-72 text-white p-4 border-l  border-gray-300 border-solid relative ml-4'>
+          <div className='w-72 text-white p-4 border-l  border-[#2c2e73] border-solid relative ml-4'>
             <Sidebar tkn={tkn} onConversationSelect={handleConversationSelect}  />
           </div>
         )}
         {showMessage && selectedConversation && (
-          <div className='w-72 text-white p-4 border border-gray-300 border-solid position fixed ml-4 right-80 bottom-0 z-20 bg-[#030712]'>
+          <div className='w-72 text-white p-4 border border-[#2c2e73] border-solid position fixed ml-4 right-80 bottom-0 z-20 bg-[#030712]'>
             <MessageContainer user={selectedConversation} curruser={userDetails} tkn={tkn}/> 
           </div>
         )}

@@ -54,14 +54,14 @@ const Cards = ({ searchTerm, buttonTag }) => {
           placeholder="Search by tags..."
           value={searchTermTags}
           onChange={handleSearchTags}
-          className="mb-4 p-2 placeholder-gray-100 text-[12px] bg-[#030712] text-white focus:outline-none focus:ring-2 focus:ring-gray-300 border border-gray-300 border-solid rounded w-3/12"
+          className="mb-4 p-2 placeholder-gray-100 text-[12px] bg-[#030712] text-white focus:outline-none focus:ring-2 focus:ring-gray-300 border border-[#2c2e73] border-solid rounded w-3/12"
         />
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-2 gap-8">
-        {filteredCards.map((card, index) => (
-          <Card key={index} card={card} />
-        ))}
-      </div>
+      <div className="grid grid-cols-2 md:grid-cols-1 gap-8">
+  {filteredCards.map((card, index) => (
+    <Card key={index} card={card} />
+  ))}
+</div>
     </div>
   );
 };

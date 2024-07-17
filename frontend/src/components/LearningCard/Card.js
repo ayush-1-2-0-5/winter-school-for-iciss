@@ -9,7 +9,7 @@ const Card = ({ card }) => {
   };
 
   return (
-    <div className="border border-gray-300 border-solid overflow-auto rounded-lg  bg-[#030712]">
+    <div className="border border-[#2c2e73] border-solid overflow-auto rounded-lg  bg-[#030712]">
       <div className="flex">
         <div className="flex-shrink-0 mr-6 ml-4 mt-4">
           <img

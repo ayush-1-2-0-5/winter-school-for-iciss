@@ -101,7 +101,7 @@ const Page = () => {
       </div>
 
       {showSidebar && (
-          <div className='w-72 text-white p-2 border-l rounded-[18px] border-gray-300 border-solid bg-[#030712] relative ' style={{ maxHeight: '100vh' }}>
+          <div className='w-72 text-white p-2 border-l rounded-[18px] border-[#2c2e73] border-solid bg-[#030712] relative ' style={{ maxHeight: '100vh' }}>
             <CommentBar userdetail={userDetails} id={id} />
           </div>
       )}

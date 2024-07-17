@@ -25,8 +25,6 @@ io.on('connection', (socket) => {
   if (userId) {
     console.log('User connected with ID:', userId);
     userSocketMap[userId] = socket.id;
-
-    // Emit updated online users list to all clients
     io.emit('getOnlineUsers', Object.keys(userSocketMap));
   }
 

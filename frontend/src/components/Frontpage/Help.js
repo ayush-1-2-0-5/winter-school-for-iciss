@@ -39,7 +39,7 @@ const Help = () => {
         </div>
       </div>
       <div className="self-stretch flex flex-row items-start justify-end py-0 pr-[60.3px] pl-[60px] mq450:pl-5 mq450:pr-5 mq450:box-border">
-        <button className="cursor-pointer pt-2 px-[26px] pb-[9px] bg-peru flex-1 rounded-31xl flex flex-row items-start justify-start whitespace-nowrap border-[1px] border-solid border-gray-300 hover:bg-chocolate-200 hover:box-border hover:border-[1px] hover:border-solid hover:border-dimgray">
+        <button className="cursor-pointer pt-2 px-[26px] pb-[9px] bg-peru flex-1 rounded-31xl flex flex-row items-start justify-start whitespace-nowrap border-[1px] border-solid border-[#2c2e73] hover:bg-chocolate-200 hover:box-border hover:border-[1px] hover:border-solid hover:border-dimgray">
           <div className="flex-1 relative text-xl leading-[32px] font-open-sans text-white text-center">
             Make an enquiry
           </div>

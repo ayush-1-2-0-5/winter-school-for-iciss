@@ -22,7 +22,7 @@ const LearningPaths = ({onSearchTagChange}) => {
   };
 
   return (
-    <div className="bg-[#030712] text-xl font-serif rounded-lg px-4 py-2 flex items-center gap-4 border border-gray-300 border-solid">
+    <div className="bg-[#030712] text-xl font-serif rounded-lg px-4 py-2 flex items-center gap-4 border border-[#2c2e73] border-solid">
       {buttons.map((buttonLabel, index) => (
         <button
           key={index}

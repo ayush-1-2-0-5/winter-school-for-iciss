@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Card from '../LearningCard/Card';
+import { useNavigate } from 'react-router-dom';
 
 const CardForm = ({ onCardCreated }) => {
   const [title, setTitle] = useState('');
@@ -9,6 +10,8 @@ const CardForm = ({ onCardCreated }) => {
   const [image, setImage] = useState('');
   const [id, setId] = useState('');
   const [preview, setPreview] = useState(false);
+  const navigate = useNavigate();
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,6 +25,9 @@ const CardForm = ({ onCardCreated }) => {
       setId('');
       setPreview(false);
       console.log("sucessfully created card");
+
+      navigate(`/adminboard/${id}`);
+
 
     } catch (err) {
       console.error('Error creating card:', err);
@@ -43,7 +49,7 @@ const CardForm = ({ onCardCreated }) => {
           <input
             type="text"
             id="title"
-          className="w-6/12 border-solid  placeholder-gray-100 text-white bg-[#030712] px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+          className="w-6/12 border-solid  placeholder-gray-100 text-white bg-[#030712] px-3 py-2 border border-[#2c2e73] rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
             placeholder="Enter Title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
@@ -55,7 +61,7 @@ const CardForm = ({ onCardCreated }) => {
           <label for="description" className="block text-[20px] mt-5 mb-1 font-medium text-white">Description</label>
           <textarea
             id="description"
-            className="w-6/12  placeholder-gray-100 text-white bg-[#030712] px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+            className="w-6/12  placeholder-gray-100 text-white bg-[#030712] px-3 py-2 border border-[#2c2e73] rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
             placeholder="Description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
@@ -67,7 +73,7 @@ const CardForm = ({ onCardCreated }) => {
           <input
             type="text"
             id="tags"
-           className="w-6/12  border-solid placeholder-gray-100 text-white bg-[#030712] px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+           className="w-6/12  border-solid placeholder-gray-100 text-white bg-[#030712] px-3 py-2 border border-[#2c2e73] rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
             placeholder="Tags (comma separated)"
             value={tags}
             onChange={(e) => setTags(e.target.value)}
@@ -78,7 +84,7 @@ const CardForm = ({ onCardCreated }) => {
           <input
             type="text"
             id="image"
-           className="w-6/12 border-solid  placeholder-gray-100 text-white bg-[#030712] px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+           className="w-6/12 border-solid  placeholder-gray-100 text-white bg-[#030712] px-3 py-2 border border-[#2c2e73] rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
             placeholder="Image URL"
             value={image}
             onChange={(e) => setImage(e.target.value)}
@@ -89,7 +95,7 @@ const CardForm = ({ onCardCreated }) => {
           <input
             type="text"
             id="id"
-           className="w-6/12 border-solid  placeholder-gray-100 text-white bg-[#030712] px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+           className="w-6/12 border-solid  placeholder-gray-100 text-white bg-[#030712] px-3 py-2 border border-[#2c2e73] rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
             placeholder="ID"
             value={id}
             onChange={(e) => setId(e.target.value)}
@@ -100,8 +106,8 @@ const CardForm = ({ onCardCreated }) => {
       </div>
       </div>
       <div>
-      <button type="button" onClick={handlePreview} className="bg-[#030712] border border-solid border-gray-300 ml-20 text-white font-bold py-2 px-4 cursor-pointer rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400">Preview Card</button>
-      <button type="submit" onClick={handleSubmit}  className="bg-[#030712] border border-solid border-gray-300 ml-20 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer focus:ring-blue-400">Create Card</button>
+      <button type="button" onClick={handlePreview} className="bg-[#030712] border border-solid border-[#2c2e73] ml-20 text-white font-bold py-2 px-4 cursor-pointer rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400">Preview Card</button>
+      <button type="submit" onClick={handleSubmit}  className="bg-[#030712] border border-solid border-[#2c2e73] ml-20 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer focus:ring-blue-400">Create Card</button>
       </div>
     </form>
   </div>

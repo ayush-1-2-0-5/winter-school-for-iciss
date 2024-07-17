@@ -40,7 +40,7 @@ const MessageInput = ({ userid, tkn }) => {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Write a message..."
-          className="input text-white h-[26px] placeholder-white border-[1px] border-gray-300 border-solid bg-[#030712] rounded-md"
+          className="input text-white h-[26px] placeholder-white border-[1px] border-[#2c2e73] border-solid bg-[#030712] rounded-md"
         />
         <button
           type="submit"
