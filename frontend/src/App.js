@@ -31,7 +31,7 @@ function App() {
 
     switch (pathname) {
       case "/":
-        title = "Winter School";
+        title = "E-Learning School";
         metaDescription = "Welcome to Winter School";
         break;
       case "/login":
@@ -51,7 +51,7 @@ function App() {
         metaDescription = "Details of the selected course";
         break;
       default:
-        title = "Winter School";
+        title = "E-Learning School";
         metaDescription = "Welcome to Winter School";
     }
 
@@ -75,6 +75,7 @@ function App() {
       <Route path="/" element={<WinterSchool />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignupPage />} />
+      
       <Route path="/dashboard" element={<Dashboard/>} />
       <Route path="/dashboard/:id" element={<Page/>} />
       

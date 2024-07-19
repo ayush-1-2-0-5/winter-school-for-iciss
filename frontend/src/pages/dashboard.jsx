@@ -10,7 +10,6 @@ import { MessageContextProvider } from '../context/messageContext';
 import MessageSkeleton from '../components/Skeletons/messageskeleton';
 import { SocketContextProvider } from '../context/SocketContext';
 
-
 const Dashboard = () => {
   const [showSidebar, setShowSidebar] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
@@ -19,7 +18,6 @@ const Dashboard = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchTag, setSearchTag] = useState("");
   const navigate = useNavigate();
-  
 
   const toggleSidebar = () => {
     setShowSidebar(prevState => !prevState);
@@ -41,10 +39,6 @@ const Dashboard = () => {
 
   const handleSearchTermChange = (newSearchTerm) => {
     setSearchTerm(newSearchTerm);
-  };
-
-  const handleSearchTagChange = (newSearchTag) => {
-    setSearchTag(newSearchTag);
   };
 
   const handleConversationSelect = async (user) => {
@@ -77,41 +71,36 @@ const Dashboard = () => {
       navigate('/login');
     }
   }, [navigate]);
- 
+
   console.log(userDetails);
 
   return (
-    <SocketContextProvider user={userDetails} >
-    <MessageContextProvider>
-    <div className='bg-[#030712] min-h-screen flex overflow-auto flex-col'>
-      <div className='w-full'>
-        <NavbarL userDetails={userDetails} toggleSidebar={toggleSidebar} onSearchTermChange={handleSearchTermChange} />
-      </div>
-      <div className='flex flex-grow'>
-        <div className='flex-grow'>
-          <div className='mt-12 text-[36px] font-bold text-white text-center'>
-            Learning Paths
+    <SocketContextProvider user={userDetails}>
+      <MessageContextProvider>
+        <div className='bg-[#030712] min-h-screen flex overflow-auto flex-col'>
+          <div className='w-full border-l border-r border-b border-solid border-[#2c2e73] m-0 p-0'>
+            <NavbarL userDetails={userDetails} toggleSidebar={toggleSidebar} onSearchTermChange={handleSearchTermChange} />
           </div>
-          <div className='mt-6 flex justify-center'>
-            <LearningPaths onSearchTagChange={handleSearchTagChange} />
+          <div className='flex flex-grow'>
+            <div className='flex-grow'>
+              <div className='mt-12 text-[36px] font-bold text-white text-center'>
+                Learning Paths
+              </div>
+              <Cards searchTerm={searchTerm} buttonTag={searchTag} />
+            </div>
+            {showSidebar && (
+              <div className='w-72 text-white p-4 border-l border-[#2c2e73] border-solid relative ml-4'>
+                <Sidebar tkn={tkn} onConversationSelect={handleConversationSelect} />
+              </div>
+            )}
+            {showMessage && selectedConversation && (
+              <div className='w-72 text-white p-4 border border-[#2c2e73] border-solid fixed ml-4 right-80 bottom-0 z-20 bg-[#030712]'>
+                <MessageContainer user={selectedConversation} curruser={userDetails} tkn={tkn} />
+              </div>
+            )}
           </div>
-          
-          <Cards searchTerm={searchTerm} buttonTag={searchTag} />
-          
         </div>
-        {showSidebar && (
-          <div className='w-72 text-white p-4 border-l  border-[#2c2e73] border-solid relative ml-4'>
-            <Sidebar tkn={tkn} onConversationSelect={handleConversationSelect}  />
-          </div>
-        )}
-        {showMessage && selectedConversation && (
-          <div className='w-72 text-white p-4 border border-[#2c2e73] border-solid position fixed ml-4 right-80 bottom-0 z-20 bg-[#030712]'>
-            <MessageContainer user={selectedConversation} curruser={userDetails} tkn={tkn}/> 
-          </div>
-        )}
-      </div>
-    </div>
-    </MessageContextProvider>
+      </MessageContextProvider>
     </SocketContextProvider>
   );
 };

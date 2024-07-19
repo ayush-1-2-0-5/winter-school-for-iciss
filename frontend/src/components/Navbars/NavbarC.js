@@ -41,7 +41,7 @@ const NavbarC = ({ userDetails, title, length, currentPage, onPageChange, mainti
     const pages = Array.from({ length }, (_, index) => index + 1);
 
     return (
-      <div className="absolute bg-[#030712] shadow-md  w-48 border border-solid border-[#2c2e73] overflow-hidden z-10 top-[36px]">
+      <div className="absolute bg-[#030712] shadow-md  w-48 border border-solid border-[#2c2e73]  max-h-[500px] overflow-auto z-10 top-[36px]">
         {pages.map((page) => (
           <div
             key={page}
@@ -63,7 +63,7 @@ const NavbarC = ({ userDetails, title, length, currentPage, onPageChange, mainti
         onClick={navtoDashboard}
         className="text-[22px] font-family:Times hover:cursor-pointer font-bold text-white"
       >
-        WINTER-SCHOOL
+        E-LEARNING SCHOOL
       </div>
 
       <div className="text-white font-sans text-[16px] font-semibold">

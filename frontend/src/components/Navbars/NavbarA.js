@@ -15,7 +15,7 @@ const NavbarA = ({userDetails}) => {
         onClick={navtoHome}
         className="text-[22px] font-family:Times hover:cursor-pointer font-bold text-white"
       >
-        WINTER-SCHOOL
+        E-LEARNING SCHOOL
       </div>
       <div className="flex items-center space-x-4 mr-6">
         <LogoutP userDetails={userDetails} />

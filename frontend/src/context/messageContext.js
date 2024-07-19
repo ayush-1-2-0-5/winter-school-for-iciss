@@ -7,7 +7,6 @@ export const useMessageContext = () => {
 };
 
 export const MessageContextProvider = ({ children }) => {
-	//  const [selectedConversation,setSelectedConversation]=useState([]);
 	const [messages, setMessages] = useState([]);
 	const [loading, setLoading] = useState(true);
    

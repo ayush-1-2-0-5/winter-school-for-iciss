@@ -30,7 +30,9 @@ const Card = ({ card }) => {
                 className="text-white text-[15] font-semibold mr-2 rounded"
               >
                 {tag}
+                {index!==card.tags.length -1 &&<span className="ml-2">|</span>}
               </span>
+             
             ))}
           </div>
           <button 

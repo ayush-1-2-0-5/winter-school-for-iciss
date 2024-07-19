@@ -15,11 +15,61 @@ const ContentForm = () => {
       const updatedItems = [...prevItems];
       const updatedDescriptions = [...updatedItems[currentIndex].description];
       const currentDescription = updatedDescriptions[descIndex];
-      const updatedDescription = `code ${currentDescription}`;
+      const updatedDescriptionWithoutThinkbox = currentDescription.startsWith('thinkbox ') 
+        ? currentDescription.slice(9) 
+        : currentDescription;
+      const updatedDescriptionWithCode = `code ${updatedDescriptionWithoutThinkbox}`;
+      
+      updatedDescriptions[descIndex] = updatedDescriptionWithCode;
+      updatedItems[currentIndex].description = updatedDescriptions;
+      
+      return updatedItems;
+    });
+  };
+  
+  const handleAddThinkbox = (currentIndex, descIndex) => {
+    setContentItems((prevItems) => {
+      const updatedItems = [...prevItems];
+      const updatedDescriptions = [...updatedItems[currentIndex].description];
+      const currentDescription = updatedDescriptions[descIndex];
+      const updatedDescriptionWithoutCodeSnippet = currentDescription.startsWith('code ') 
+      ? currentDescription.slice(5) 
+      : currentDescription;
+
+      const updatedDescription = `thinkbox ${updatedDescriptionWithoutCodeSnippet}`;
       updatedDescriptions[descIndex] = updatedDescription;
       updatedItems[currentIndex].description = updatedDescriptions;
       return updatedItems;
     });
+  };
+
+  const handleNormalSnippet = (currentIndex, descIndex) => {
+    setContentItems((prevItems) => {
+      const updatedItems = [...prevItems];
+      const updatedDescriptions = [...updatedItems[currentIndex].description];
+      let currentDescription = updatedDescriptions[descIndex];
+      currentDescription = currentDescription.startsWith('code ') ? currentDescription.slice(5) : currentDescription;
+      currentDescription = currentDescription.startsWith('thinkbox ') ? currentDescription.slice(9) : currentDescription;
+      updatedDescriptions[descIndex] = currentDescription;
+      updatedItems[currentIndex].description = updatedDescriptions;
+      return updatedItems;
+    });
+  };
+  
+
+
+  const handleOptionChange = (e, currentIndex, descIndex) => {
+    if (e.target.value === 'codeSnippet') {
+      handleAddCodeSnippet(currentIndex, descIndex);
+    }
+    if (e.target.value === 'thinkbox') {
+      handleAddThinkbox(currentIndex, descIndex);
+    }
+    if(e.target.value==='default')
+    {
+      handleNormalSnippet(currentIndex,descIndex);
+    }
+
   };
   
 
@@ -167,13 +217,14 @@ const ContentForm = () => {
       onChange={(e) => handleContentItemChange(currentIndex, 'description', descIndex, e.target.value)}
       required
     />
-    <button
-      type="button"
-      onClick={() => handleAddCodeSnippet(currentIndex, descIndex)}
-      className="bg-[#030712] ml-1 cursor-pointer bg-gray-100 border border-solid border-[#2c2e73] mt-2 text-white  py-1 px-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400"
-    >
-      Make this block a<br/><b>Code Snippet</b>
-    </button>
+     <select
+        onChange={(e) => handleOptionChange(e, currentIndex, descIndex)}
+        className="p-2 cursor-pointer text-center text-[12px] ml-2  bg-[#030712] text-white focus:outline-none focus:ring-2 focus:ring-gray-300 border border-[#2c2e73] border-solid rounded"
+     >
+                              <option value="default">Normal</option>
+                              <option value="codeSnippet">Code Snippet</option>
+                              <option value="thinkbox">ThinkBox</option>
+    </select>
     </div>
   </div>
 ))}

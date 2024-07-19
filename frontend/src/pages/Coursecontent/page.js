@@ -4,6 +4,7 @@ import axios from 'axios';
 import NavbarC from '../../components/Navbars/NavbarC';
 import Content from './Content';
 import CommentBar from '../../components/CommentsBar/CommentBar';
+import { SocketContextProvider } from '../../context/SocketContext';
 
 const Page = () => {
   const [userDetails, setUserDetails] = useState({});
@@ -80,8 +81,9 @@ const Page = () => {
   }, [content]);
 
   return (
-    <div className='bg-[#2f3437] min-h-screen flex flex-col'>
-      <div className='w-full'>
+    <SocketContextProvider user={userDetails}>
+    <div className='bg-[#2f3437]  min-h-screen flex flex-col'>
+      <div className='w-full border border-solid  border-[#2c2e73] '>
         <NavbarC
           userDetails={userDetails}
           title={title}
@@ -107,6 +109,7 @@ const Page = () => {
       )}
       </div>
     </div>
+    </SocketContextProvider>
   );
 };
 

@@ -22,7 +22,7 @@ const cardSchema = new mongoose.Schema({
       required: true,
       unique: true,
     }
-  });
+  }, { timestamps: true });
   
   const Card = mongoose.model('Card', cardSchema);
 
