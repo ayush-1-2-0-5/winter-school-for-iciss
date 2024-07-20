@@ -10,7 +10,7 @@ const Sidebar = ({ tkn, onConversationSelect }) => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/v1/allusers`, {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/allusers`, {
           headers: {
             Authorization: `Bearer ${tkn}`,
           },

@@ -3,8 +3,9 @@ const express = require('express');
 const cors = require('cors');
 const rootRouter = require('./routes/index'); 
 require('./db/db'); 
+const{server,app}=require("./Socket/socket")
 
-const app = express();
+// const app = express();
 
 app.use(cors());
 app.use(express.json());
@@ -17,7 +18,7 @@ app.get('/', (req, res) => {
 const PORT = process.env.PORT || 3001;
 
 if (process.env.NODE_ENV !== 'production') {
-  app.listen(PORT, () => {
+  server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
   });
 }

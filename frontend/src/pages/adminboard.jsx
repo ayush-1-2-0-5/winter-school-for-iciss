@@ -34,7 +34,7 @@ const Adminboard = () => {
           {isCardFormVisible ? 'Hide Card Form' : 'Create New Card'}
         </button>
 
-        <CardList cards={cards} />
+        {/* <CardList cards={cards} /> */}
       </div>
     </>
   );

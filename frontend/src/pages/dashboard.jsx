@@ -18,7 +18,6 @@ const Dashboard = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchTag, setSearchTag] = useState("");
   const navigate = useNavigate();
-
   const toggleSidebar = () => {
     setShowSidebar(prevState => !prevState);
   };
