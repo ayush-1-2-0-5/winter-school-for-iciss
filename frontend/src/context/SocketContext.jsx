@@ -22,6 +22,8 @@ export const SocketContextProvider = ({ children, user }) => {
 
   useEffect(() => {
     if (authUserString) {
+      console.log('Connecting to socket with userId:', authUserString);
+      console.log('Using API URL:', process.env.REACT_APP_API_URL);
       const newSocket = io(`${process.env.REACT_APP_API_URL}`, {
         query: {
           userId: authUserString
