@@ -7,6 +7,9 @@ app.use(cors());
 app.use(express.json());
 app.use('/api/v1', rootRouter);
 
+app.get('/', (req, res) => {
+  res.send('Hello, World!');
+});
 
 const PORT = process.env.PORT || 3001;
 server.listen(PORT, () => {
