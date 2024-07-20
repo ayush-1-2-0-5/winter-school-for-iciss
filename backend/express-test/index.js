@@ -1,5 +1,5 @@
-const express = require('express');
+const app = require('./app');
 
-const router = express.Router();
-
-module.exports = router;
+module.exports = (req, res) => {
+  app(req, res); // Use app as a handler for serverless function
+};
