@@ -1,6 +1,6 @@
 const { JWT_SECRET } = require("./config");
 const jwt = require("jsonwebtoken");
-const { User } = require("./db");
+const { User } = require("./db/usermodel");
 const authMiddleware = (req, res, next) => {
     const authHeader = req.headers.authorization;
     if (!authHeader || !authHeader.startsWith('Bearer ')) {

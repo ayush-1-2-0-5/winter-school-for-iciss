@@ -2,7 +2,7 @@ const express=require('express');
 const { protectRoute } = require('../middleware');
 const {getUsersForSidebar} =require('../controllers/alluser.controller')
 const {authMiddleware}=require('../middleware');
-const { User } = require("../db");
+const { User } = require("../db/usermodel");
 
 
 const router=express.Router();

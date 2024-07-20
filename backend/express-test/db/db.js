@@ -1,0 +1,26 @@
+const mongoose = require('mongoose');
+require('dotenv').config(); 
+
+const mongoURI = process.env.MONGODB_URL;
+
+if (!mongoURI) {
+  throw new Error('MONGODB_URL is not defined in environment variables');
+}
+
+console.log('MongoDB URI:', mongoURI);
+
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => {
+  console.log('Successfully connected to the database');
+})
+.catch((err) => {
+  console.error('Database connection error:', err);
+});
+
+module.exports = {
+    mongoose
+  };
+  
