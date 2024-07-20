@@ -10,11 +10,13 @@ const container = document.getElementById("root");
 const root = createRoot(container);
 
 root.render(
-  <BrowserRouter>
-  <SocketContextProvider>
-    <App />
-  </SocketContextProvider>
-  </BrowserRouter>
+  <React.StrictMode>
+    <BrowserRouter>
+      <SocketContextProvider>
+        <App />
+      </SocketContextProvider>
+    </BrowserRouter>
+  </React.StrictMode>
 );
 
 reportWebVitals();

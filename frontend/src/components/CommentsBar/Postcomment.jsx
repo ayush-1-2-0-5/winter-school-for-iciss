@@ -25,7 +25,7 @@ const Postcomment = ({ userDetails, courseId,onPostComment }) => {
     };
 
     try {
-      const response = await axios.post('http://localhost:3001/api/v1/comment', commentData);
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/comment`, commentData);
       console.log('Success:', response.data);
       setComment('');
       addComment(response.data); 

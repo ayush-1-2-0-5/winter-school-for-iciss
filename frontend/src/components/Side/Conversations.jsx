@@ -24,7 +24,7 @@ const Conversations = ({ users, onConversationSelect, tkn }) => {
   const getMessages = async () => {
     try {
       setLoading(true); 
-      const response = await axios.get(`http://localhost:3001/api/v1/message/${isActive}`, {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/message/${isActive}`, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${tkn}`

@@ -19,7 +19,7 @@ const LoginPage = () => {
       console.log(username);
       console.log(password);
       const response = await axios.post(
-        'http://localhost:3001/api/v1/user/signin',
+        `${process.env.REACT_APP_API_URL}/user/signin`,
         { username, password },
         {
           headers: {
@@ -72,7 +72,7 @@ const LoginPage = () => {
           Log in
         </button>
 
-        <p className="mt-4 text-center text-white text-sm text-black">
+        <p className="mt-4 text-center text-white text-sm">
           Don't have an account?{' '}
           <a
             onClick={handleSignupClick}

@@ -7,7 +7,7 @@ const CardList = () => {
   useEffect(() => {
     const fetchCards = async () => {
       try {
-        const response = await axios.get('/api/cards');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/cards`);
         setCards(response.data);
       } catch (err) {
         console.error('Error fetching cards:', err);

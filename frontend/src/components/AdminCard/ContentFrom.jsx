@@ -117,7 +117,7 @@ const ContentForm = () => {
     console.log(contentItems);
     e.preventDefault();
     try {
-      await axios.post('http://localhost:3001/api/v1/content', {
+      await axios.post(`${process.env.REACT_APP_API_URL}/content`, {
         length: parseInt(length, 10),
         id,
         content: contentItems
@@ -178,7 +178,7 @@ const ContentForm = () => {
 
                       {contentItems[currentIndex].title.map((title, titleIndex) => (
                         <div key={titleIndex}>
-                          <label htmlFor={`title-${currentIndex}-${titleIndex}`} className="block text-[20px] mt-5 ml-2 mb-1 font-medium text-white">{titleIndex+1}->Enter Sub-Titles</label>
+                          <label htmlFor={`title-${currentIndex}-${titleIndex}`} className="block text-[20px] mt-5 ml-2 mb-1 font-medium text-white">{titleIndex+1}-Enter Sub-Titles</label>
                           <input
                             type="text"
                             id={`title-${currentIndex}-${titleIndex}`}
@@ -193,7 +193,7 @@ const ContentForm = () => {
                       <button
                         type="button"
                         onClick={() => handleAddField(currentIndex, 'title')}
-                        className="bg-[#030712]  cursor-pointer border bg-blue-400 border-solid border-[#2c2e73] mt-2 text-white  py-1 px-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400"
+                        className="  cursor-pointer border bg-blue-400 border-solid border-[#2c2e73] mt-2 text-white  py-1 px-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400"
                       >
                         Add <b>SubTitle</b>
                       </button>
@@ -206,7 +206,7 @@ const ContentForm = () => {
       htmlFor={`description-${currentIndex}-${descIndex}`}
       className="block text-[20px] mt-5 mb-1 font-medium text-white"
     >
-      {descIndex+1} -> Enter SubTitle Description/Code Snippet
+      {descIndex+1} - Enter SubTitle Description/Code Snippet
     </label>
     <div className='flex justify-around '>
     <textarea
@@ -231,7 +231,7 @@ const ContentForm = () => {
 <button
   type="button"
   onClick={() => handleAddField(currentIndex, 'description')}
-  className="bg-[#030712] mt-4 bg-blue-400 border border-solid border-[#2c2e73] mt-2 text-white py-1 px-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400"
+  className="bg-[#030712] mt-4 order border-solid border-[#2c2e73]  text-white py-1 px-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400"
 >
   Add antoher <b>Paragraph/Codeblock</b>
 </button>

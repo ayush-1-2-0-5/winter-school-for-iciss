@@ -16,7 +16,7 @@ const CardForm = ({ onCardCreated }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/api/v1/cards', { title, description, tags: tags.split(','), image, id });
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/cards`, { title, description, tags: tags.split(','), image, id });
       onCardCreated(response.data.card);
       setTitle('');
       setDescription('');

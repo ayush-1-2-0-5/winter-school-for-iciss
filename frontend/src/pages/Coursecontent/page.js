@@ -26,7 +26,7 @@ const Page = () => {
 
   const handleData = async (token) => {
     try {
-      const response = await axios.get('http://localhost:3001/api/v1/user/session', {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/user/session`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -39,7 +39,7 @@ const Page = () => {
 
   const fetchContent = async (id) => {
     try {
-      const response = await axios.get(`http://localhost:3001/api/v1/content/${id}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/content/${id}`);
       setContent(response.data);
 
       if (response.data && response.data.content && Array.isArray(response.data.content)) {

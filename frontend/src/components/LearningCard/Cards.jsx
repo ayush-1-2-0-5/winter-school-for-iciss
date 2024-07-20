@@ -11,7 +11,7 @@ const Cards = ({ searchTerm, buttonTag }) => {
   useEffect(() => {
     const fetchCards = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/api/v1/cards");
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/cards`);
         setCardsData(response.data);
       } catch (error) {
         console.error("Error fetching the cards data", error);

@@ -25,7 +25,7 @@ const Dashboard = () => {
 
   const handleData = async (token) => {
     try {
-      const response = await axios.get('http://localhost:3001/api/v1/user/session', {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/user/session`, {
         headers: {
           Authorization: `Bearer ${token}`
         }

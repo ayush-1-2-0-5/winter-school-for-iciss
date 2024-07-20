@@ -27,7 +27,7 @@ const Comments = ({ courseId, trigger }) => {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/api/v1/comment/${courseId}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/comment/${courseId}`);
         if (response.data) {
           const sortedComments = response.data.sort((a, b) => new Date(b.time) - new Date(a.time));
           setComments(sortedComments);
