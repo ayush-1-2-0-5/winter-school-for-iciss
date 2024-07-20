@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const { server, app } = require('./Socket/socket'); 
-const rootRouter = require('./routes/index'); // Ensure the correct path to index.js
+const rootRouter = require('./routes/index'); 
 
 app.use(cors());
 app.use(express.json());

@@ -1,4 +1,4 @@
-
+require('dotenv').config();
 const express = require('express');
 const userRouter = require("./user");
 const cardRouter=require("./cards");
