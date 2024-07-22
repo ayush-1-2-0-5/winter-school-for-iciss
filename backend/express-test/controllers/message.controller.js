@@ -22,7 +22,6 @@ const getMessages=async(req,res)=>{
 	}
 }
 
-
 const sendMessage = async (req, res) => {
 	try {
 	  const { message } = req.body;
@@ -43,37 +42,28 @@ const sendMessage = async (req, res) => {
 		  participants: [senderId, receiverId],
 		});
 	  }
-  
-	  // Create new message
 	  const newMessage = new Message({
 		senderId,
 		receiverId,
 		message,
 	  });
   
-
-	  if (newMessage) {
-		conversation.messages.push(newMessage._id);
-	  }
-		await Promise.all([conversation.save(), newMessage.save()]);
-	  
-		console.log("line: 60",receiverId)
-		const receiverSocketId = getReceiverSocketId(receiverId);
-		console.log("line: 62",receiverSocketId)
-		if (receiverSocketId) {
-		  io.to(receiverSocketId).emit("newMessage", newMessage);
-		
-
+	  conversation.messages.push(newMessage._id);
+	  await Promise.all([conversation.save(), newMessage.save()]);
+	  const receiverSocketId = getReceiverSocketId(receiverId);
   
-		return res.status(201).json(newMessage);
+	  if (receiverSocketId) {
+		io.to(receiverSocketId).emit("newMessage", newMessage);
 	  } else {
-		return res.status(400).json({ error: 'Failed to create message' });
+		console.log("Receiver is offline, message saved but not notified.");
 	  }
+	  return res.status(201).json(newMessage);
 	} catch (error) {
 	  console.error('Error creating message:', error);
-	  return res.status(500).json({ error: error.message });
+	  return res.status(500).json({ error: 'Internal server error' });
 	}
   };
+  
   
 
 

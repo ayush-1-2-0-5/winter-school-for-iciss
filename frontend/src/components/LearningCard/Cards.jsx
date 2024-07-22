@@ -80,12 +80,12 @@ const Cards = ({ searchTerm, buttonTag }) => {
           placeholder="Search by tags..."
           value={searchTermTags}
           onChange={handleSearchTags}
-          className="mb-4 p-2 placeholder-gray-100 text-[12px] bg-[#030712] text-white focus:outline-none focus:ring-2 focus:ring-gray-300 border border-[#2c2e73] border-solid rounded w-3/12"
+          className="mb-4 p-2 placeholder-gray-100 drop-shadow-[0_0_2.4px_#5C2E00] text-[12px] bg-[#030712] text-white focus:outline-none focus:ring-2 focus:ring-gray-300 border border-[#2c2e73] border-solid rounded w-3/12"
         />
         <select
           value={sortOption}
           onChange={handleSortChange}
-          className="ml-4 mb-4 cursor-pointer text-center text-[12px] p-2 bg-[#030712] text-white focus:outline-none focus:ring-2 focus:ring-gray-300 border border-[#2c2e73] border-solid rounded"
+          className="ml-4 mb-4 cursor-pointer text-center text-[12px] drop-shadow-[0_0_2.4px_#5C2E00] p-2 bg-[#030712] text-white focus:outline-none focus:ring-2 focus:ring-gray-300 border border-[#2c2e73] border-solid rounded"
         >
           <option className="p-1 text-[12x] mb-2" value="default">Sort</option>
           <option value="createdAt">Latest</option>

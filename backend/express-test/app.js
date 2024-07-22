@@ -5,8 +5,6 @@ const rootRouter = require('./routes/index');
 require('./db/db'); 
 const{server,app}=require("./Socket/socket")
 
-// const app = express();
-
 app.use(cors());
 app.use(express.json());
 app.use('/api/v1', rootRouter);

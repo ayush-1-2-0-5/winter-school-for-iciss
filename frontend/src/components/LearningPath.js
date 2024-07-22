@@ -27,11 +27,11 @@ const LearningPaths = ({ onSearchTagChange, cards }) => {
   };
 
   return (
-    <div className="bg-[#030712] text-xl font-serif rounded-lg px-4 py-2 flex items-center gap-4 border border-[#2c2e73] border-solid">
+    <div className="bg-[#030712] text-xl font-serif rounded-lg px-4 py-2 flex items-center gap-4 border drop-shadow-[0_0_2.4px_#5C2E00] border-[#2c2e73] border-solid">
       {topTags.map((tag, index) => (
         <button
           key={index}
-          className={`bg-[#030712] rounded-lg text-gray-100 py-2 px-4 font-medium focus:outline-none hover:${hoverColor} cursor-pointer ${
+          className={`bg-[#030712] rounded-lg text-gray-100  py-2 px-4 font-medium focus:outline-none hover:${hoverColor} cursor-pointer ${
             selectedButton === tag ? hoverColor : ''
           }`} 
           onClick={() => handleClick(tag)}

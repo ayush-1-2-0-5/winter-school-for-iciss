@@ -82,13 +82,13 @@ const Dashboard = () => {
           </div>
           <div className='flex flex-grow'>
             <div className='flex-grow'>
-              <div className='mt-12 text-[36px] font-bold text-white text-center'>
+              <div className='mt-12 text-[36px]  font-bold text-white text-center'>
                 Learning Paths
               </div>
               <Cards searchTerm={searchTerm} buttonTag={searchTag} />
             </div>
             {showSidebar && (
-              <div className='w-72 text-white p-4 border-l border-[#2c2e73] border-solid relative ml-4'>
+              <div className='w-72 text-white p-4 border-l drop-shadow-[0_0_2.4px_#5C2E00] border-[#2c2e73] border-solid relative ml-4'>
                 <Sidebar tkn={tkn} onConversationSelect={handleConversationSelect} />
               </div>
             )}
