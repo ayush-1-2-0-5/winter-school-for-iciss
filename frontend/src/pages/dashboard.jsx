@@ -17,6 +17,13 @@ const Dashboard = () => {
   const [userDetails, setUserDetails] = useState({});
   const [searchTerm, setSearchTerm] = useState("");
   const [searchTag, setSearchTag] = useState("");
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+
+
+
+
   const navigate = useNavigate();
   const toggleSidebar = () => {
     setShowSidebar(prevState => !prevState);
@@ -71,6 +78,10 @@ const Dashboard = () => {
     }
   }, [navigate]);
 
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+  };
+
   console.log(userDetails);
 
   return (
@@ -85,10 +96,18 @@ const Dashboard = () => {
               <div className='mt-12 text-[36px]  font-bold text-white text-center'>
                 Learning Paths
               </div>
-              <Cards searchTerm={searchTerm} buttonTag={searchTag} />
+              
+              <Cards 
+                searchTerm={searchTerm} 
+                buttonTag={searchTag} 
+                currentPage={currentPage} 
+                onPageChange={handlePageChange} 
+                setTotalPages={setTotalPages} 
+              />
+            
             </div>
             {showSidebar && (
-              <div className='w-72 text-white p-4 border-l drop-shadow-[0_0_2.4px_#5C2E00] border-[#2c2e73] border-solid relative ml-4'>
+              <div className='w-72 text-white p-4 border max-h-[700px]  border-[#2c2e73] border-solid relative ml-4'>
                 <Sidebar tkn={tkn} onConversationSelect={handleConversationSelect} />
               </div>
             )}

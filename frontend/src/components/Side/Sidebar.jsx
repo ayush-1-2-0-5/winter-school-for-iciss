@@ -24,7 +24,7 @@ const Sidebar = ({ tkn, onConversationSelect }) => {
   }, [tkn]);
 
   return (
-    <div className='border-r border-slate-500 flex flex-col'>
+    <div className='border-r bg-[#030712] max-h-screen overflow-y flex flex-col'>
       <SearchInput />
       <div className='divider px-3'></div>
       <Conversations users={users} onConversationSelect={onConversationSelect} tkn={tkn} />

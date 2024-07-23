@@ -10,7 +10,7 @@ const Card = ({ card }) => {
   };
 
   return (
-    <div className="border  border-[#2c2e73] border-solid overflow-auto rounded-lg bg-[#030712] drop-shadow-[0_0_2.4px_#5C2E00]">
+    <div className="border max-h-[220px] border-[#2c2e73] border-solid overflow-auto rounded-lg bg-[#030712] drop-shadow-[0_0_2.4px_#5C2E00]">
       <div className="flex">
         <div className="flex-shrink-0 mr-6 ml-4 mt-4">
           <img

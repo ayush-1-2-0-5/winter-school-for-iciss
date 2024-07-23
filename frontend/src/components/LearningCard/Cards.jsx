@@ -7,18 +7,33 @@ const Cards = ({ searchTerm, buttonTag }) => {
   const [cardsData, setCardsData] = useState([]);
   const [searchTermTags, setSearchTermTags] = useState("");
   const [sortOption, setSortOption] = useState("default");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const itemsPerPage = 6;
 
   useEffect(() => {
     const fetchCards = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/cards`);
-        setCardsData(response.data);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/cards`, {
+          params: {
+            searchTerm,
+            buttonTag,
+            page: currentPage,
+            limit: itemsPerPage,
+          }
+        });
+        if (response.data && response.data.cards) {
+          setCardsData(response.data.cards);
+          setTotalPages(Math.ceil(response.data.totalCount / itemsPerPage));
+        } else {
+          setCardsData([]);
+        }
       } catch (error) {
         console.error("Error fetching the cards data", error);
       }
     };
     fetchCards();
-  }, []);
+  }, [searchTerm, buttonTag, currentPage]);
 
   useEffect(() => {
     console.log(buttonTag);
@@ -43,6 +58,12 @@ const Cards = ({ searchTerm, buttonTag }) => {
     setSortOption(e.target.value);
   };
 
+  const handlePageChange = (newPage) => {
+    if (newPage > 0 && newPage <= totalPages) {
+      setCurrentPage(newPage);
+    }
+  };
+
   const getSortedCards = (cards) => {
     if (sortOption === "createdAt") {
       return cards.slice().sort((a, b) => {
@@ -63,7 +84,7 @@ const Cards = ({ searchTerm, buttonTag }) => {
       } else if (searchTerm) {
         return card.title.toLowerCase().includes(searchTerm.toLowerCase());
       } else {
-        return card;
+        return true;
       }
     })
   );
@@ -87,14 +108,39 @@ const Cards = ({ searchTerm, buttonTag }) => {
           onChange={handleSortChange}
           className="ml-4 mb-4 cursor-pointer text-center text-[12px] drop-shadow-[0_0_2.4px_#5C2E00] p-2 bg-[#030712] text-white focus:outline-none focus:ring-2 focus:ring-gray-300 border border-[#2c2e73] border-solid rounded"
         >
-          <option className="p-1 text-[12x] mb-2" value="default">Sort</option>
+          <option className="p-1 text-[12px] mb-2" value="default">Sort</option>
           <option value="createdAt">Latest</option>
         </select>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-1 gap-8">
-        {filteredCards.map((card, index) => (
+      <div className="grid grid-cols-2  min-h-[600px] md:grid-cols-1 gap-8">
+        {Array.isArray(filteredCards) && filteredCards.map((card, index) => (
           <Card key={index} card={card} />
         ))}
+      </div>
+      <div className="pagination-controls flex justify-center mt-4">
+        <button
+          onClick={() => handlePageChange(currentPage - 1)}
+          className={`px-4 py-2 mx-1 ${currentPage === 1 ? 'text-white border border-solid cursor-not-allowed  bg-gray-200' : 'text-white border border-solid bg-black cursor-pointer'}`}
+          disabled={currentPage === 1}
+        >
+          Previous
+        </button>
+        {Array.from({ length: totalPages }, (_, index) => (
+          <button
+            key={index}
+            onClick={() => handlePageChange(index + 1)}
+            className={`px-4 py-2 mx-1 ${index + 1 === currentPage ? 'bg-blue-300 drop-shadow-[0_0_2.4px_#5C2E00] text-gray-100 border border-solid ' : 'bg-gray-200 text-black'}`}
+          >
+            {index + 1}
+          </button>
+        ))}
+        <button
+          onClick={() => handlePageChange(currentPage + 1)}
+          className={`px-4 py-2 mx-1 ${currentPage === totalPages ? 'text-white border border-solid cursor-not-allowed  bg-gray-200' : 'text-white border border-solid bg-black cursor-pointer'}`}
+          disabled={currentPage === totalPages}
+        >
+          Next
+        </button>
       </div>
     </div>
   );
