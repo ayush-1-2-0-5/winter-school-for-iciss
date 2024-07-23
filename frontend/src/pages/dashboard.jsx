@@ -84,16 +84,12 @@ const Dashboard = () => {
   return (
     <SocketContextProvider user={userDetails}>
       <MessageContextProvider>
-        <div className='bg-[#030712] min-h-screen flex overflow-hidden flex-col'>
-          <div className='container mx-auto'>
-            <div className='border-l border-r border-b border-solid border-[#2c2e73]'>
-              {loadingUserDetails ? (
-                <div className="text-white text-center mt-4">Loading...</div>
-              ) : (
+        <div className='bg-[#030712] min-h-screen flex flex-col'>
+          <div className='container mx-auto '>
+            <div className='border-l border-r border-b ml-2 mr-4 border-solid border-[#2c2e73] items-center justify-center'>
                 <NavbarL userDetails={userDetails} toggleSidebar={toggleSidebar} onSearchTermChange={handleSearchTermChange} />
-              )}
             </div>
-            <div className='flex flex-grow'>
+            <div className='flex flex-grow flex-col lg:flex-row'>
               <div className='flex-grow'>
                 <div className='mt-12 text-[36px] font-bold text-white text-center'>
                   Learning Paths
@@ -106,23 +102,34 @@ const Dashboard = () => {
                   setTotalPages={setTotalPages} 
                 />
               </div>
-              {showSidebar && (
-                <div className='w-72 text-white p-4 border-solid border max-h-[700px] border-[#2c2e73] relative ml-4'>
-                  <Sidebar tkn={tkn} onConversationSelect={handleConversationSelect} />
-                </div>
-              )}
-              {showMessage && selectedConversation && ( 
-                <div className='w-72 text-white p-4 border border-solid border-[#2c2e73] fixed ml-4 right-80 bottom-0 z-20 bg-[#030712]'>
-                  <MessageContainer user={selectedConversation} curruser={userDetails} tkn={tkn} />
-                </div>
-              )}
+
+
+
+
+              <div className='flex mr-10'>
+  {showSidebar && (
+    <div className='w-6/12 mr-1 mt-20 mb-10 drop-shadow-[0_0_2.4px_#5C2E00]   text-white p-4  max-h-[700px]  '>
+      <Sidebar tkn={tkn} onConversationSelect={handleConversationSelect} />
+    </div>
+  )}
+  
+  {showMessage && selectedConversation && (
+    <div className="flex-grow w-5/12  mt-20 ml-1 mb-10 drop-shadow-[0_0_2.4px_#5C2E00] text-white p-4 border border-solid border-[#2c2e73] bg-[#030712]">
+      <MessageContainer user={selectedConversation} curruser={userDetails} tkn={tkn} />
+    </div>
+  )}
+</div>
+
             </div>
           </div>
-          <Footer />
+          <div className='mr-10 ml-2 mt-auto'>
+          <Footer/>
+          </div>
         </div>
       </MessageContextProvider>
     </SocketContextProvider>
   );
 };
+
 
 export default Dashboard;

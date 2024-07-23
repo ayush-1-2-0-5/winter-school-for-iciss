@@ -32,7 +32,7 @@ const LearningPaths = ({ onSearchTagChange, cards }) => {
       });
 
       const sortedTags = Object.keys(tagFrequency).sort((a, b) => tagFrequency[b] - tagFrequency[a]);
-      setTopTags(sortedTags.slice(0, 6));
+      setTopTags(sortedTags);
       setLoading(false); // End loading
     };
 
@@ -45,6 +45,27 @@ const LearningPaths = ({ onSearchTagChange, cards }) => {
     onSearchTagChange(newSelectedButton);
   };
 
+  // Determine the number of tags to show based on the screen size
+  const [numTags, setNumTags] = useState(3);
+
+  useEffect(() => {
+    const updateNumTags = () => {
+      const width = window.innerWidth;
+      if (width >= 1024) {
+        setNumTags(6);
+      } else {
+        setNumTags(3);
+      }
+    };
+
+    updateNumTags(); // Initial check
+    window.addEventListener('resize', updateNumTags); // Add resize listener
+
+    return () => {
+      window.removeEventListener('resize', updateNumTags); // Clean up listener on unmount
+    };
+  }, []);
+
   return (
     <div className="bg-[#030712] text-xl font-serif rounded-lg px-4 py-2 flex items-center gap-4 border drop-shadow-[0_0_2.4px_#5C2E00] border-[#2c2e73] border-solid">
       {loading ? (
@@ -52,17 +73,19 @@ const LearningPaths = ({ onSearchTagChange, cards }) => {
           <div style={loaderStyle}></div>
         </div>
       ) : (
-        topTags.map((tag, index) => (
-          <button
-            key={index}
-            className={`bg-[#030712] rounded-lg text-gray-100 py-2 px-4 font-medium focus:outline-none hover:${hoverColor} cursor-pointer ${
-              selectedButton === tag ? hoverColor : ''
-            }`}
-            onClick={() => handleClick(tag)}
-          >
-            {tag}
-          </button>
-        ))
+        <div className="flex items-center gap-4">
+          {topTags.slice(0, numTags).map((tag, index) => (
+            <button
+              key={index}
+              className={`bg-[#030712] rounded-lg text-gray-100 py-2 px-4 font-medium focus:outline-none hover:${hoverColor} cursor-pointer ${
+                selectedButton === tag ? hoverColor : ''
+              }`}
+              onClick={() => handleClick(tag)}
+            >
+              {tag}
+            </button>
+          ))}
+        </div>
       )}
     </div>
   );

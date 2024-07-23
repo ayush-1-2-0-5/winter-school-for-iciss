@@ -24,10 +24,17 @@ const Sidebar = ({ tkn, onConversationSelect }) => {
   }, [tkn]);
 
   return (
-    <div className='border-r bg-[#030712] max-h-screen overflow-y flex flex-col'>
-      <SearchInput />
+    <div className='border-r bg-[#030712] drop-shadow-[0_0_2.4px_#5C2E00] max-h-screen overflow-y overflow-auto flex flex-col'>
+      <div className='text-center mb-5 mt-2 font-bold'> CHAT-BAR</div>
+
+      <div className='flex justify-center ml-2  mr-2 items-center'>
+       <SearchInput />
+      </div>
+
       <div className='divider px-3'></div>
+      <div className='flex  w-full flex-cols ml-5 overflow-auto'>
       <Conversations users={users} onConversationSelect={onConversationSelect} tkn={tkn} />
+      </div>
     </div>
   );
 };

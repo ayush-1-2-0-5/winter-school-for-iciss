@@ -34,7 +34,7 @@ const MessageInput = ({ userid, tkn }) => {
 
   return (
     <div className="post-comment">
-      <form onSubmit={handleSubmit} className="flex items-center">
+      <form onSubmit={handleSubmit} className="flex  items-center">
         <input
           type="text"
           value={message}

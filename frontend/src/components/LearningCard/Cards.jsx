@@ -9,12 +9,12 @@ const Cards = ({ searchTerm, buttonTag }) => {
   const [sortOption, setSortOption] = useState("default");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [loading, setLoading] = useState(false); // Loading state
+  const [loading, setLoading] = useState(false);
   const itemsPerPage = 6;
 
   useEffect(() => {
     const fetchCards = async () => {
-      setLoading(true); // Start loading
+      setLoading(true);
       try {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/cards`, {
           params: {
@@ -33,7 +33,7 @@ const Cards = ({ searchTerm, buttonTag }) => {
       } catch (error) {
         console.error("Error fetching the cards data", error);
       } finally {
-        setLoading(false); // End loading
+        setLoading(false);
       }
     };
     fetchCards();
@@ -91,43 +91,52 @@ const Cards = ({ searchTerm, buttonTag }) => {
   );
 
   return (
-    <div className="p-8">
+    <div className="p-8 ">
       <div className="text-center mb-2 font-bold">Top Tags</div>
-      <div className="flex justify-center">
+      <div className="flex justify-center mb-4">
         <LearningPaths onSearchTagChange={handleSearchTagChange} cards={cardsData} />
       </div>
-      <div className="flex mt-4 justify-center">
+      <div className="flex  flex-row items-center justify-center mb-4">
         <input
           type="text"
           placeholder="Search by tags..."
           value={searchTermTags}
           onChange={handleSearchTags}
-          className="mb-4 p-2 placeholder-gray-100 drop-shadow-[0_0_2.4px_#5C2E00] text-[12px] bg-[#030712] text-white focus:outline-none focus:ring-2 focus:ring-gray-300 border border-[#2c2e73] border-solid rounded w-3/12"
+          className="mb-4 md:mb-0 p-2 placeholder-gray-100 drop-shadow-[0_0_2.4px_#5C2E00] text-[12px] bg-[#030712] text-white focus:outline-none focus:ring-2 focus:ring-gray-300 border border-[#2c2e73] border-solid rounded md:w-3/12"
         />
         <select
           value={sortOption}
           onChange={handleSortChange}
-          className="ml-4 mb-4 cursor-pointer text-center text-[12px] drop-shadow-[0_0_2.4px_#5C2E00] p-2 bg-[#030712] text-white focus:outline-none focus:ring-2 focus:ring-gray-300 border border-[#2c2e73] border-solid rounded"
+          className="md:ml-4 mb-4 ml-3 cursor-pointer text-center text-[12px] drop-shadow-[0_0_2.4px_#5C2E00] p-2 bg-[#030712] text-white focus:outline-none focus:ring-2 focus:ring-gray-300 border border-[#2c2e73] border-solid rounded"
         >
           <option className="p-1 text-[12px] mb-2" value="default">Sort</option>
           <option value="createdAt">Latest</option>
         </select>
       </div>
+
+
       {loading ? (
         <div className="flex justify-center flex-col items-center min-h-[600px]">
           <div className="loader"></div>
         </div>
       ) : (
+
+
         <>
-          <div className="grid grid-cols-2 min-h-[600px] md:grid-cols-1 gap-8">
-            {Array.isArray(filteredCards) && filteredCards.map((card, index) => (
-              <Card key={index} card={card} />
-            ))}
-          </div>
+<div className="flex justify-center items-center">
+  <div className="w-9/12 grid grid-cols-1 gap-8 lg:grid-cols-2 min-h-[550px]">
+    {/* Ensure filteredCards is an array */}
+    {Array.isArray(filteredCards) && filteredCards.map((card, index) => (
+      <Card key={index} card={card} />
+    ))}
+  </div>
+</div>
+
+
           <div className="pagination-controls flex justify-center mt-4">
             <button
               onClick={() => handlePageChange(currentPage - 1)}
-              className={`px-4 py-2 rounded-lg mx-1 ${currentPage === 1 ? 'text-white border border-solid cursor-not-allowed  bg-gray-200' : 'text-white border border-solid bg-black cursor-pointer'}`}
+              className={`px-4 py-2 rounded-lg mx-1 ${currentPage === 1 ? 'text-white border border-solid cursor-not-allowed bg-gray-200' : 'text-white border border-solid bg-black cursor-pointer'}`}
               disabled={currentPage === 1}
             >
               Previous
@@ -136,14 +145,14 @@ const Cards = ({ searchTerm, buttonTag }) => {
               <button
                 key={index}
                 onClick={() => handlePageChange(index + 1)}
-                className={`px-4 py-2 text-white mx-1 ${index + 1 === currentPage ? 'bg-blue-300 drop-shadow-[0_0_2.4px_#5C2E00] border border-solid ' : 'bg-gray-200 text-black'}`}
+                className={`px-4 py-2 text-white mx-1 ${index + 1 === currentPage ? 'bg-blue-300 drop-shadow-[0_0_2.4px_#5C2E00] border border-solid' : 'bg-gray-200 text-black'}`}
               >
                 {index + 1}
               </button>
             ))}
             <button
               onClick={() => handlePageChange(currentPage + 1)}
-              className={`px-4 py-2 rounded-lg mx-1 ${currentPage === totalPages ? 'text-white border border-solid cursor-not-allowed  bg-gray-200' : 'text-white border border-solid bg-black cursor-pointer'}`}
+              className={`px-4 py-2 rounded-lg mx-1 ${currentPage === totalPages ? 'text-white border border-solid cursor-not-allowed bg-gray-200' : 'text-white border border-solid bg-black cursor-pointer'}`}
               disabled={currentPage === totalPages}
             >
               Next

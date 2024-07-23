@@ -37,7 +37,7 @@ const Messages = ({ user, curruser }) => {
   }, [messages]);
 
   return (
-    <div className="m-4 min-h-[300px] max-h-[400px] overflow-auto">
+    <div className="m-4 min-h-[300px] max-h-[600px] overflow-auto">
       <div className="px-4 flex-1">
         {!loading &&
           messages.length > 0 &&
