@@ -9,10 +9,10 @@
       }
     }
   ],
-"rewrites": [
+  "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/src/index.js"
+      "destination": "/index.html"
     }
   ],
   "env": {
