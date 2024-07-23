@@ -1,5 +1,4 @@
-const { app, server } = require('./app'); // Import the Express app and server
-
+const app = require('./app');
 module.exports = (req, res) => {
-  return app(req, res); // Use app as a handler for serverless function
+  return app(req, res); 
 };
