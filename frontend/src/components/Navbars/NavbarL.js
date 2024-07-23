@@ -10,8 +10,8 @@ const NavbarL = ({ userDetails, toggleSidebar, onSearchTermChange }) => {
   };
   
   return (
-    <nav className="bg-black drop-shadow-[0_0_2.4px_#5C2E00] flex items-center justify-between px-4 py h-16 sticky "> 
-      <div className="text-2xl font-bold text-white">E-LEARNING SCHOOL</div>
+    <nav className="bg-black drop-shadow-[0_0_2.4px_#5C2E00] flex items-center justify-between h-16 sticky "> 
+      <div className="text-2xl font-bold ml-4 text-white">E-LEARNING SCHOOL</div>
       <div className="flex items-center space-x-4 mr-6">
       <input
           type="text"

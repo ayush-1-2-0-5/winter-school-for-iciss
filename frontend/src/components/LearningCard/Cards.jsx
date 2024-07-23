@@ -9,10 +9,12 @@ const Cards = ({ searchTerm, buttonTag }) => {
   const [sortOption, setSortOption] = useState("default");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [loading, setLoading] = useState(false); // Loading state
   const itemsPerPage = 6;
 
   useEffect(() => {
     const fetchCards = async () => {
+      setLoading(true); // Start loading
       try {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/cards`, {
           params: {
@@ -30,18 +32,17 @@ const Cards = ({ searchTerm, buttonTag }) => {
         }
       } catch (error) {
         console.error("Error fetching the cards data", error);
+      } finally {
+        setLoading(false); // End loading
       }
     };
     fetchCards();
   }, [searchTerm, buttonTag, currentPage]);
 
   useEffect(() => {
-    console.log(buttonTag);
     if (buttonTag && !searchTerm) {
       setSearchTermTags(buttonTag);
-      console.log(!buttonTag);
     } else if (!buttonTag && searchTermTags) {
-      console.log(!buttonTag);
       setSearchTermTags("");
     }
   }, [buttonTag, searchTerm]);
@@ -112,36 +113,44 @@ const Cards = ({ searchTerm, buttonTag }) => {
           <option value="createdAt">Latest</option>
         </select>
       </div>
-      <div className="grid grid-cols-2  min-h-[600px] md:grid-cols-1 gap-8">
-        {Array.isArray(filteredCards) && filteredCards.map((card, index) => (
-          <Card key={index} card={card} />
-        ))}
-      </div>
-      <div className="pagination-controls flex justify-center mt-4">
-        <button
-          onClick={() => handlePageChange(currentPage - 1)}
-          className={`px-4 py-2 mx-1 ${currentPage === 1 ? 'text-white border border-solid cursor-not-allowed  bg-gray-200' : 'text-white border border-solid bg-black cursor-pointer'}`}
-          disabled={currentPage === 1}
-        >
-          Previous
-        </button>
-        {Array.from({ length: totalPages }, (_, index) => (
-          <button
-            key={index}
-            onClick={() => handlePageChange(index + 1)}
-            className={`px-4 py-2 mx-1 ${index + 1 === currentPage ? 'bg-blue-300 drop-shadow-[0_0_2.4px_#5C2E00] text-gray-100 border border-solid ' : 'bg-gray-200 text-black'}`}
-          >
-            {index + 1}
-          </button>
-        ))}
-        <button
-          onClick={() => handlePageChange(currentPage + 1)}
-          className={`px-4 py-2 mx-1 ${currentPage === totalPages ? 'text-white border border-solid cursor-not-allowed  bg-gray-200' : 'text-white border border-solid bg-black cursor-pointer'}`}
-          disabled={currentPage === totalPages}
-        >
-          Next
-        </button>
-      </div>
+      {loading ? (
+        <div className="flex justify-center flex-col items-center min-h-[600px]">
+          <div className="loader"></div>
+        </div>
+      ) : (
+        <>
+          <div className="grid grid-cols-2 min-h-[600px] md:grid-cols-1 gap-8">
+            {Array.isArray(filteredCards) && filteredCards.map((card, index) => (
+              <Card key={index} card={card} />
+            ))}
+          </div>
+          <div className="pagination-controls flex justify-center mt-4">
+            <button
+              onClick={() => handlePageChange(currentPage - 1)}
+              className={`px-4 py-2 rounded-lg mx-1 ${currentPage === 1 ? 'text-white border border-solid cursor-not-allowed  bg-gray-200' : 'text-white border border-solid bg-black cursor-pointer'}`}
+              disabled={currentPage === 1}
+            >
+              Previous
+            </button>
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index}
+                onClick={() => handlePageChange(index + 1)}
+                className={`px-4 py-2 text-white mx-1 ${index + 1 === currentPage ? 'bg-blue-300 drop-shadow-[0_0_2.4px_#5C2E00] border border-solid ' : 'bg-gray-200 text-black'}`}
+              >
+                {index + 1}
+              </button>
+            ))}
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
+              className={`px-4 py-2 rounded-lg mx-1 ${currentPage === totalPages ? 'text-white border border-solid cursor-not-allowed  bg-gray-200' : 'text-white border border-solid bg-black cursor-pointer'}`}
+              disabled={currentPage === totalPages}
+            >
+              Next
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 };
