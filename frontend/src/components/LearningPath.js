@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 const LearningPaths = ({ onSearchTagChange, cards }) => {
   const [selectedButton, setSelectedButton] = useState('');
   const [topTags, setTopTags] = useState([]);
-  const hoverColor = 'bg-gray-800'; 
+  const hoverColor = 'bg-gray-800';
 
   useEffect(() => {
     const tagFrequency = {};
@@ -22,8 +22,9 @@ const LearningPaths = ({ onSearchTagChange, cards }) => {
   }, [cards]);
 
   const handleClick = (buttonLabel) => {
-    setSelectedButton(buttonLabel === selectedButton ? '' : buttonLabel);
-    onSearchTagChange(buttonLabel);
+    const newSelectedButton = buttonLabel === selectedButton ? '' : buttonLabel;
+    setSelectedButton(newSelectedButton);
+    onSearchTagChange(newSelectedButton);
   };
 
   return (
@@ -31,9 +32,9 @@ const LearningPaths = ({ onSearchTagChange, cards }) => {
       {topTags.map((tag, index) => (
         <button
           key={index}
-          className={`bg-[#030712] rounded-lg text-gray-100  py-2 px-4 font-medium focus:outline-none hover:${hoverColor} cursor-pointer ${
+          className={`bg-[#030712] rounded-lg text-gray-100 py-2 px-4 font-medium focus:outline-none hover:${hoverColor} cursor-pointer ${
             selectedButton === tag ? hoverColor : ''
-          }`} 
+          }`}
           onClick={() => handleClick(tag)}
         >
           {tag}

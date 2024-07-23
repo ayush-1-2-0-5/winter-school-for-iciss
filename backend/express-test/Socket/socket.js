@@ -8,7 +8,7 @@ const io = new Server(server, {
   cors: {
     origin: ["http://localhost:3000", "https://winter-school-for-iciss.vercel.app"],
     methods: ["GET", "POST"],
-  }, 
+  },
 });
 
 const userSocketMap = {};

@@ -8,9 +8,7 @@ import notificationSound from "./assets/sounds/simple-notification-152054.mp3"
 const Messages = ({ user, curruser }) => {
   const { messages, setMessages, loading } = useMessageContext();
   const { socket } = useSocketContext();
-
   const lastMessageRef = useRef();
-
   const useListenMessages = () => {
     useEffect(() => {
       if (socket) {

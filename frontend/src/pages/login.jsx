@@ -6,6 +6,7 @@ import {useAuthContext } from '../context/authContext';
 const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
 
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ const LoginPage = () => {
   };
 
   const handleLogin = async () => {
+    setLoading(true);
     try {
       console.log(username);
       console.log(password);
@@ -39,6 +41,9 @@ const LoginPage = () => {
       navigate('/dashboard');
     } catch (error) {
       console.error('Signup error:', error);
+    }
+    finally {
+      setLoading(false); 
     }
   };
 
@@ -69,7 +74,7 @@ const LoginPage = () => {
           className="w-full ml-2 border border-solid border-[#2c2e73] bg-[#030712] text-white py-2 rounded hover:bg-gray-200 hover cursor-pointer transition"
           onClick={handleLogin}
         >
-          Log in
+         {loading ? 'Logging in...' : 'Log in'}
         </button>
 
         <p className="mt-4 text-center text-white text-sm">
