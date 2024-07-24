@@ -1,6 +1,7 @@
 import React from 'react'
 import ContentForm from '../../components/AdminCard/ContentFrom'
 import NavbarA from '../../components/Navbars/NavbarA'
+
 import Content from './Content'
 const Createcontent = () => {
   return (

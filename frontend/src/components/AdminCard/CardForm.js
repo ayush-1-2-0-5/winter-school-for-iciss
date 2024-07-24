@@ -11,10 +11,11 @@ const CardForm = ({ onCardCreated }) => {
   const [id, setId] = useState('');
   const [preview, setPreview] = useState(false);
   const navigate = useNavigate();
-
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const response = await axios.post(`${process.env.REACT_APP_API_URL}/cards`, { title, description, tags: tags.split(','), image, id });
       onCardCreated(response.data.card);
@@ -31,6 +32,9 @@ const CardForm = ({ onCardCreated }) => {
 
     } catch (err) {
       console.error('Error creating card:', err);
+    }
+    finally{
+      setLoading(false);
     }
   };
 
@@ -107,7 +111,7 @@ const CardForm = ({ onCardCreated }) => {
       </div>
       <div>
       <button type="button" onClick={handlePreview} className="bg-[#030712] border border-solid border-[#2c2e73] ml-20 text-white font-bold py-2 px-4 cursor-pointer rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400">Preview Card</button>
-      <button type="submit" onClick={handleSubmit}  className="bg-[#030712] border border-solid border-[#2c2e73] ml-20 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer focus:ring-blue-400">Create Card</button>
+      {loading?<button type="submit" onClick={handleSubmit}  className="bg-[#030712] border border-solid border-[#2c2e73] ml-20 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer focus:ring-blue-400"> Creating card.... <div className="loader"></div></button>:<button type="submit" onClick={handleSubmit}  className="bg-[#030712] border border-solid border-[#2c2e73] ml-20 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer focus:ring-blue-400">Create Card</button>}
       </div>
     </form>
   </div>

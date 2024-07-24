@@ -24,6 +24,18 @@ footer {
 	padding: 1rem;
 	border-top: 1px solid #2c2e73;
   }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+	display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .hide-scrollbar {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+  }
+  
   
 @keyframes spin {
     0% { transform: rotate(0deg); }

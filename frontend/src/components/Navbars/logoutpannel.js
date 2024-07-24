@@ -12,6 +12,7 @@ const LogoutP=({userDetails})=>{
     navigate('/login');
   };
 
+  console.log(userDetails)
   return(
 <>
     <div
