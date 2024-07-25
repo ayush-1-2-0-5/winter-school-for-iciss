@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import LogoutP from './logoutpannel';
+
 import { useNavigate } from 'react-router-dom';
 
 const NavbarA = ({userDetails}) => {
@@ -17,9 +17,7 @@ const NavbarA = ({userDetails}) => {
       >
         E-LEARNING SCHOOL
       </div>
-      <div className="flex items-center space-x-4 mr-6">
-        <LogoutP userDetails={userDetails} />
-      </div>
+   
     </nav>
   );
 };

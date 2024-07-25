@@ -18,7 +18,7 @@ const NavbarP = ({ userDetails, toggleSidebar, onSearchTermChange }) => {
   };
 
   const handleCreatecard = () => {
-    navigate(`/createCardboard/${userDetails.user_id}`);
+    navigate(`/createCardboardP/${userDetails.user_id}`);
   };
 
   return (

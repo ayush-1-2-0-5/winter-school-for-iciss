@@ -34,8 +34,6 @@ const CreateCardboard = () => {
         >
           {isCardFormVisible ? 'Hide Card Form' : 'Create New Card'}
         </button>
-
-        {/* <CardList cards={cards} /> */}
       </div>
     </>
   );

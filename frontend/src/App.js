@@ -14,8 +14,11 @@ import Page from "./pages/Coursecontent/page";
 import MyDashboard from "./pages/mydashboard.jsx";
 import CreateCardboard from "./pages/createCardboard.jsx";
 
+
 // import MessageContain from "./components/messages/MessageContain";
 import Createcontent from "./pages/Coursecontent/Createcontent.jsx";
+import CreatecontentP from "./pages/Coursecontent/CreatecontentP.jsx";
+import CreateCardboardP from "./components/PersonalCard/createCardboardP.jsx";
 
 function App() {
   const action = useNavigationType();
@@ -83,6 +86,8 @@ function App() {
       <Route path="/dashboard/:id" element={<Page/>} />
       <Route path="/dashboards/:id" element={<MyDashboard/>} />
       <Route path="/createCardboard/:id" element={<CreateCardboard/>} />
+      <Route path="/createCardboardP/:id" element={<CreateCardboardP/>} />
+      <Route path="/createContentP/:id" element={<CreatecontentP/>} />
       
       <Route path="/adminboard" element={<Adminboard/>} />
       <Route path="/adminboard/:id" element={<Createcontent/>} />

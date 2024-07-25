@@ -3,7 +3,7 @@ import axios from "axios";
 import Card from "./Card";
 import LearningPaths from "../LearningPath";
 
-const CustomDashboardCards = ({ searchTerm, buttonTag,userid }) => {
+const CustomDashboardCards = ({ searchTerm, buttonTag, userid }) => {
   const [cardsData, setCardsData] = useState([]);
   const [searchTermTags, setSearchTermTags] = useState("");
   const [sortOption, setSortOption] = useState("default");
@@ -14,7 +14,6 @@ const CustomDashboardCards = ({ searchTerm, buttonTag,userid }) => {
 
   useEffect(() => {
     const fetchCards = async () => {
-        console.log(userid)
       setLoading(true);
       try {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/cards/${userid}`, {
@@ -92,12 +91,12 @@ const CustomDashboardCards = ({ searchTerm, buttonTag,userid }) => {
   );
 
   return (
-    <div className="p-8 ">
+    <div className="p-8">
       <div className="text-center mb-2 font-bold">Top Tags</div>
       <div className="flex justify-center mb-4">
         <LearningPaths onSearchTagChange={handleSearchTagChange} cards={cardsData} />
       </div>
-      <div className="flex  flex-row items-center justify-center mb-4">
+      <div className="flex flex-row items-center justify-center mb-4">
         <input
           type="text"
           placeholder="Search by tags..."
@@ -115,24 +114,26 @@ const CustomDashboardCards = ({ searchTerm, buttonTag,userid }) => {
         </select>
       </div>
 
-
       {loading ? (
         <div className="flex justify-center flex-col items-center min-h-[600px]">
           <div className="loader"></div>
         </div>
       ) : (
-
-
         <>
-<div className="flex justify-center items-center">
-  <div className="w-9/12 grid grid-cols-1 gap-8 lg:grid-cols-2 min-h-[550px]">
-    {/* Ensure filteredCards is an array */}
-    {Array.isArray(filteredCards) && filteredCards.map((card, index) => (
-      <Card key={index} card={card} />
-    ))}
-  </div>
-</div>
-
+          {cardsData.length === 0 ? (
+            <div className="flex justify-center items-center min-h-[550px]">
+              <p className="text-white">You have not uploaded any modules.</p>
+            </div>
+          ) : (
+            <div className="flex justify-center items-center">
+              <div className="w-9/12 grid grid-cols-1 gap-8 lg:grid-cols-2 min-h-[550px]">
+                {/* Ensure filteredCards is an array */}
+                {Array.isArray(filteredCards) && filteredCards.map((card, index) => (
+                  <Card key={index} card={card} />
+                ))}
+              </div>
+            </div>
+          )}
 
           <div className="pagination-controls flex justify-center mt-4">
             <button

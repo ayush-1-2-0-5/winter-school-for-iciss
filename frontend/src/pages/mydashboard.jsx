@@ -20,7 +20,7 @@ const MyDashboard = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [loadingUserDetails, setLoadingUserDetails] = useState(false);
   const [loadingConversation, setLoadingConversation] = useState(false);
-  const [userData, setUserData] = useState(null);
+ 
 
 
   const navigate = useNavigate();
