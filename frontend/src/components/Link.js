@@ -1,5 +1,7 @@
 import { useMemo } from "react";
 //THIS COMPONENT IS FOR THE FAQ SECTION
+
+
 const Link = ({
   doIGetACertificateByCompl,
   propGap,

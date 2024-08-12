@@ -3,7 +3,7 @@ import LogoutP from './logoutpannel';
 import { useNavigate } from 'react-router-dom';
 import Adminboard from '../../pages/adminboard';
 
-const NavbarP = ({ userDetails, toggleSidebar, onSearchTermChange }) => {
+const NavbarP = ({ userDetails, toggleSidebar, onSearchTermChange,toggleotherdashboard }) => {
   const [searchTermTitle, setSearchTermTitle] = useState("");
 
   const handleSearchTitle = (e) => {
@@ -36,6 +36,9 @@ const NavbarP = ({ userDetails, toggleSidebar, onSearchTermChange }) => {
         </button>
         <button onClick={toggleSidebar} className="bg-[#030712] border drop-shadow-[0_0_2.4px_#5C2E00] border-[#2c2e73] border-solid text-white px-4 py-2 hover cursor-pointer rounded-md">
           Chat
+        </button>
+        <button onClick={toggleotherdashboard} className="bg-[#030712] border drop-shadow-[0_0_2.4px_#5C2E00] border-[#2c2e73] border-solid text-white px-4 py-2 hover cursor-pointer rounded-md">
+          Other's dashboard
         </button>
         <LogoutP userDetails={userDetails} />
       </div>

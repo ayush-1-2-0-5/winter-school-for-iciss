@@ -8,12 +8,9 @@ import NavbarA from '../Navbars/NavbarA';
 const CreateCardboardP = () => {
   const [isCardFormVisible, setIsCardFormVisible] = useState(false);
   const [cards, setCards] = useState([]);
-  
-
   const handleCardCreated = (newCard) => {
-    setCards([...cards, newCard]);
+    setCards([newCard,...cards]);
   };
-
   const toggleCardFormVisibility = () => {
     setIsCardFormVisible(!isCardFormVisible);
   }
@@ -36,7 +33,6 @@ const CreateCardboardP = () => {
           <CardForm onCardCreated={handleCardCreated} userid={userid}/>
             </div>
         )}
-        
         <button
           type="button"
           className="bg-blue-500  hover:bg-blue-700 ml-5 mt-8 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400"

@@ -45,7 +45,7 @@ const Conversations = ({ users, onConversationSelect, tkn }) => {
   }, [isActive]);
 
   return (
-    <div className="flex flex-col justify-center p-2 items-center w-9/12 mb-2 min-h-[300px] max-h-[600px]  overflow-auto hide-scrollbar">
+    <div className="flex flex-col  justify-center p-2 items-center w-9/12 mb-2 min-h-[300px] max-h-[600px]  overflow-auto ">
       {sortedUsers.map(user => (
         <Conversation
           key={user._id}

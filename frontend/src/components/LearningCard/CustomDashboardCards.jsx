@@ -3,11 +3,13 @@ import axios from "axios";
 import Card from "./Card";
 import LearningPaths from "../LearningPath";
 
-const CustomDashboardCards = ({ searchTerm, buttonTag, userid }) => {
+const CustomDashboardCards = ({ searchTerm, buttonTag, userid,user_id}) => {
   const [cardsData, setCardsData] = useState([]);
   const [searchTermTags, setSearchTermTags] = useState("");
   const [sortOption, setSortOption] = useState("default");
   const [currentPage, setCurrentPage] = useState(1);
+  const [firstName, setFirstName] = useState("");
+  const [email, setEmail] = useState("");
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(false);
   const itemsPerPage = 6;
@@ -37,7 +39,7 @@ const CustomDashboardCards = ({ searchTerm, buttonTag, userid }) => {
       }
     };
     fetchCards();
-  }, [searchTerm, buttonTag, currentPage]);
+  }, [searchTerm, buttonTag, currentPage,userid]);
 
   useEffect(() => {
     if (buttonTag && !searchTerm) {
@@ -46,6 +48,25 @@ const CustomDashboardCards = ({ searchTerm, buttonTag, userid }) => {
       setSearchTermTags("");
     }
   }, [buttonTag, searchTerm]);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/user/${userid}`);
+        if (response.data && response.data.firstName) {
+          setFirstName(response.data.firstName);
+          setEmail(response.data.username);
+          console.log(firstName);
+        }
+      } catch (error) {
+        console.error("Error fetching user data", error);
+      }
+    };
+
+    if (userid) {
+      fetchUserData(); 
+    }
+  }, [userid]);
 
   const handleSearchTags = (e) => {
     setSearchTermTags(e.target.value);
@@ -120,21 +141,31 @@ const CustomDashboardCards = ({ searchTerm, buttonTag, userid }) => {
         </div>
       ) : (
         <>
-          {cardsData.length === 0 ? (
-            <div className="flex justify-center items-center min-h-[550px]">
-              <p className="text-white">You have not uploaded any modules.</p>
-            </div>
-          ) : (
-            <div className="flex justify-center items-center">
-              <div className="w-9/12 grid grid-cols-1 gap-8 lg:grid-cols-2 min-h-[550px]">
-                {/* Ensure filteredCards is an array */}
-                {Array.isArray(filteredCards) && filteredCards.map((card, index) => (
-                  <Card key={index} card={card} />
-                ))}
-              </div>
-            </div>
-          )}
+         {cardsData.length === 0 ? (
+  userid === user_id ? (
+    <div className="flex justify-center items-center min-h-[550px]">
+      <p className="text-white">You have not uploaded any modules.</p>
+    </div>
+  ) : (
+    <div className="flex flex-col justify-center items-center min-h-[550px]">
+    <p className="text-white">
+        <b className="text-[20px]">{firstName}</b> has not uploaded any modules yet..
+    </p>
+    <p className="text-white">
+        Ask <b className="text-[20px]">{firstName}</b> to uplaod at email:  <b>{email}</b>
+    </p>
+</div>
 
+  )
+) : (
+  <div className="flex justify-center items-center">
+    <div className="w-9/12 grid grid-cols-1 gap-8 lg:grid-cols-2 min-h-[550px]">
+      {Array.isArray(filteredCards) && filteredCards.map((card, index) => (
+        <Card key={index} card={card} />
+      ))}
+    </div>
+  </div>
+)}
           <div className="pagination-controls flex justify-center mt-4">
             <button
               onClick={() => handlePageChange(currentPage - 1)}

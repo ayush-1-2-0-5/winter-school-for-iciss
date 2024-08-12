@@ -10,8 +10,7 @@ if (!mongoURI) {
 console.log('MongoDB URI:', mongoURI);
 
 mongoose.connect(mongoURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 5000, 
 })
 .then(() => {
   console.log('Successfully connected to the database');
@@ -19,8 +18,8 @@ mongoose.connect(mongoURI, {
 .catch((err) => {
   console.error('Database connection error:', err);
 });
+;
 
 module.exports = {
-    mongoose
-  };
-  
+  mongoose
+};

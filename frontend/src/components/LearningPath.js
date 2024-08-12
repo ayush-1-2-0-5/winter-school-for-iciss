@@ -45,7 +45,7 @@ const LearningPaths = ({ onSearchTagChange, cards }) => {
     onSearchTagChange(newSelectedButton);
   };
 
-  // Determine the number of tags to show based on the screen size
+
   const [numTags, setNumTags] = useState(3);
 
   useEffect(() => {
@@ -58,11 +58,11 @@ const LearningPaths = ({ onSearchTagChange, cards }) => {
       }
     };
 
-    updateNumTags(); // Initial check
-    window.addEventListener('resize', updateNumTags); // Add resize listener
+    updateNumTags(); 
+    window.addEventListener('resize', updateNumTags);
 
     return () => {
-      window.removeEventListener('resize', updateNumTags); // Clean up listener on unmount
+      window.removeEventListener('resize', updateNumTags); 
     };
   }, []);
 

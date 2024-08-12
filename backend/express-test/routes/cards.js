@@ -92,14 +92,14 @@ router.post('/', async (req, res) => {
 
 router.post('/:userid', async (req, res) => {
   try {
-    const userid = req.params.userid; // Capture userid from the URL
+    const userid = req.params.userid; 
     const card = await PCard.create({
       title: req.body.title,
       description: req.body.description,
       tags: req.body.tags,
       image: req.body.image,
       id: req.body.id,
-      userid: userid, // Associate the card with the user ID
+      userid: userid, 
     });
     res.json({
       message: 'Card created successfully with user ID',

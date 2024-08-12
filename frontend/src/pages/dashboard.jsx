@@ -23,7 +23,16 @@ const Dashboard = () => {
   const [loadingConversation, setLoadingConversation] = useState(false);
 
   const navigate = useNavigate();
-  const toggleSidebar = () => setShowSidebar(prevState => !prevState);
+  const toggleSidebar = () => {
+    
+    setShowSidebar(prevState => !prevState);
+    if(showSidebar==false){
+      window.scrollTo({
+        top: document.body.scrollHeight+200,
+        behavior: 'smooth'
+      });
+    }
+  }
 
   const handleData = async (token) => {
     setLoadingUserDetails(true);

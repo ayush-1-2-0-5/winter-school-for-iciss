@@ -37,7 +37,7 @@ const CardForm = ({ onCardCreated, userid }) => {
       setDescription('');
       setTags('');
       setImage('');
-      setId(generateId()); // Generate a new ID after creating a card
+      setId(generateId());
       setPreview(false);
       console.log("Successfully created card");
 

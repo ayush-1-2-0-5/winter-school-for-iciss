@@ -118,4 +118,29 @@ router.get("/session",authMiddleware,async(req,res)=>
         status: false
     })
 })
+
+router.get("/:id", async (req, res) => {
+    try {
+        const user = await User.findById(req.params.id);
+        if (user) {
+            return res.status(200).json({
+                username: user.username,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                user_id: user._id
+            });
+        }
+        res.status(404).json({
+            message: 'User not found',
+            status: false
+        });
+    } catch (error) {
+        console.error('Error fetching user by ID:', error);
+        res.status(500).json({
+            message: 'Internal server error',
+            status: false
+        });
+    }
+});
+
 module.exports = router;

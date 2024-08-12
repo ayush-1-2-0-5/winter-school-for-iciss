@@ -7,7 +7,7 @@ const Conversation = ({ user, onClick, isActive }) => {
   const isonline=onlineUsers.includes(user._id)
   console.log(isonline);
   return (
-    <div className=' cursor-pointer  overflow-auto-y'> 
+    <div className=' cursor-pointer overflow-auto-y'> 
       <div
         className={` rounded-lg ${
           user._id === isActive ? 'bg-[#9898d3]' : 'bg-[#1e293b]'
