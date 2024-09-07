@@ -6,7 +6,6 @@
   "routes": [
     { "src":"/socket.io/(.*)","dest" :"/backend/express-test/Socket/socket.js"},
     { "src": "/(.*)", "dest": "/index.js" }
-   
   ],
   "env": {
     "REACT_APP_API_URL": "https://winter-school-for-iciss.vercel.app"

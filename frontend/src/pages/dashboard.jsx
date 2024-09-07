@@ -112,9 +112,6 @@ const Dashboard = () => {
                 />
               </div>
 
-
-
-
               <div className='flex mr-10'>
   {showSidebar && (
     <div className='w-6/12 mr-1 mt-20 mb-10 drop-shadow-[0_0_2.4px_#5C2E00]   text-white p-4  max-h-[700px]  '>

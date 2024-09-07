@@ -41,6 +41,30 @@ footer {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
+  .avatar.online {
+	border: 2px solid green; /* Or any other style to indicate online status */
+  }
+  
+
+  /* Navbar.css */
+
+@keyframes borderAnimation {
+	0% {
+	  border-color: transparent;
+	}
+	50% {
+	  border-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+	}
+	100% {
+	  border-color: transparent;
+	}
+  }
+  
+  .border-animation {
+	animation: borderAnimation 2s infinite; /* Adjust timing as needed */
+  }
+  
   
 
 
