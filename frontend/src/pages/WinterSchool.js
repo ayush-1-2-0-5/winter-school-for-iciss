@@ -11,7 +11,7 @@ import HowOurContentPageLooks from "./componentforfrontpage/Howourcntentpagelook
 import HowToAddContentForAModule from "./componentforfrontpage/HowtoaddContent";
 const WinterSchool = () => {
   return (
-    <div className="w-full min-h-screen overflow-x-hidden flex flex-col bg-gradient-to-r from-blue-100 via-blue-300 to-blue-100">
+    <div className="w-full min-h-screen overflow-x-hidden flex flex-col bg-gradient-to-r from-blue-200 to-blue-200">
       <Navbar />
     
       <main className="flex-grow ">

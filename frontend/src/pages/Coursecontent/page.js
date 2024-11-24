@@ -83,8 +83,6 @@ const Page = () => {
   return (
     <SocketContextProvider user={userDetails}>
     <div className='bg-[#2f3437]  min-h-screen flex flex-col'>
-
-
       <div className='w-full border border-solid  border-[#2c2e73] '>
         <NavbarC
           userDetails={userDetails}

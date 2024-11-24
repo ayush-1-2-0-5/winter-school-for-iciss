@@ -7,14 +7,14 @@ const HowToAddACard = () => {
 
         <div className="w-full border border-solid flex border-white p-2 justify-center md:w-1/2 text-left">
           <div className="max-w-md">
-          <h2 className="text-[30px] flex justify-center font-bold text-purple-800 mb-4">
+          <h2 className="text-[30px] flex justify-center font-bold text-blue-800 mb-4">
               How to Add a Module
             </h2>
-            <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 text-[18px]">
+            <p className="text-transparent bg-clip-text bg-gradient-to-r from-black to-black text-[18px]">
               Adding a card is a simple process that enhances your interface by providing a modular way to display content. 
               Here’s how you can do it:
             </p>
-            <ul className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 text-[18px]">
+            <ul className="text-transparent bg-clip-text bg-gradient-to-r from-black to-black text-[18px]">
             <li>You can set the title of your module.</li>
               <li>You can add tags (comma-separated) with each module.</li>
               <li>You can include a short description.</li>

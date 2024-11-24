@@ -59,13 +59,13 @@ const HowOurContentPageLooks = () => {
       {/* Text section */}
       <div className="w-full border border-solid  border-white p-6 justify-center md:w-1/2 text-left">
         <div className="max-w-md mx-auto">
-        <h2 className="text-[30px] flex justify-center font-bold text-purple-800 mb-4">
+        <h2 className="text-[30px] flex justify-center font-bold text-blue-800 mb-4">
             How Our Content Page Looks
           </h2>
-          <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 text-[18px]">
+          <p className="text-transparent bg-clip-text bg-gradient-to-r from-black to-black text-[18px]">
             Our content page is meticulously designed to ensure a seamless user experience, providing an organized and interactive platform for accessing and engaging with content. The layout is crafted to support easy navigation and effective content presentation.
           </p>
-          <ul className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 text-[18px]">
+          <ul className="text-transparent bg-clip-text bg-gradient-to-r from-black to-black text-[18px]">
             <li><strong>Module Navigation:</strong> Each module consists of several pages, which can be easily accessed through the 'JumpTo' button located in the navbar. This feature enhances user convenience by allowing quick navigation between different sections of a module.</li>
             <li><strong>Navbar Features:</strong> The navbar is equipped with various tools to improve the user experience. This includes buttons for commenting on content and navigation options for moving to the next or previous pages within the module. These features ensure users can efficiently interact with the content and explore it comprehensively.</li>
             <li><strong>Page Structure:</strong> Each page within a module is organized with a main title that clearly identifies the content. Under this title, there are various subtitles that help break down the content into manageable sections. Pages also include descriptions and images that provide additional context and visual appeal, aiding in a better understanding of the material.</li>

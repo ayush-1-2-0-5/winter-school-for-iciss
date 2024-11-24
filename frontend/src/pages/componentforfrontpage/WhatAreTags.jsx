@@ -13,8 +13,8 @@ const WhatAreTags = () => {
     
           <div className="w-full md:w-1/2 text-left flex border border-solid  border-white p-2 justify-center">
             <div className="max-w-md">
-            <h2 className="text-[30px] flex justify-center font-bold text-purple-800 mb-4">What Are Tags?</h2>
-            <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 text-[18px]">
+            <h2 className="text-[30px] flex justify-center font-bold text-blue-800 mb-4">What Are Tags?</h2>
+            <p className="text-transparent bg-clip-text bg-gradient-to-r from-black to-black text-[18px]">
                 Tags are a powerful way to categorize and organize your notes and content. They provide a method for users to group related information
                 and make it easier to search and retrieve specific topics. With tags, you can quickly find and access relevant content, enhancing
                 your overall experience on the platform.

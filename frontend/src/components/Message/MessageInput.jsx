@@ -11,7 +11,6 @@ const MessageInput = ({ userid, tkn }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!message.trim()) return;
-
     setLoading(true);
     
     try {
